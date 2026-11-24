@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stephen Cichon · Performance Marketing</title>
+<meta name="description" content="Google Ads, Meta Ads, GA4 and GTM specialist. Case studies showing how I cut lead costs, fixed broken tracking and moved budget to what actually converts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c0b;
+  --panel:#111413;
+  --line:#1f2422;
+  --line-2:#2c3330;
+  --text:#e7e5dd;
+  --muted:#8d938e;
+  --dim:#5d635f;
+  --accent:#ff7a45;
+  --good:#9fd8a8;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --sans:"IBM Plex Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.6 var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  background-position:-1px -1px;
+  background-attachment:fixed;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,transparent 0%,var(--bg) 70%);
+  z-index:-1;
+}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+.label{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(10,12,11,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:20px}
+.id{font:500 13px var(--mono);letter-spacing:.04em;text-decoration:none}
+.id span{color:var(--accent)}
+nav{display:flex;gap:26px}
+nav a{font:400 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--text)}
+.status{display:flex;align-items:center;gap:8px;font:400 11px var(--mono);color:var(--muted);white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 rgba(159,216,168,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(159,216,168,0)}100%{box-shadow:0 0 0 0 rgba(159,216,168,0)}}
+
+/* hero */
+.hero{padding-top:110px;padding-bottom:70px;border-bottom:1px solid var(--line)}
+.hero > div > .label{margin-bottom:28px;display:block}
+h1{font-weight:300;font-size:clamp(40px,6.4vw,78px);line-height:1.02;letter-spacing:-.03em;max-width:15ch}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{margin-top:30px;max-width:58ch;color:var(--muted);font-size:18px;font-weight:300}
+.lede strong{color:var(--text);font-weight:500}
+.actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid var(--line-2);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#120804}
+.btn.primary:hover{background:#ff8f62}
+
+.hero{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
+.portrait{position:relative;width:260px;height:260px;justify-self:end}
+.portrait img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;filter:saturate(.9)}
+.portrait::before{content:"";position:absolute;inset:-14px;border:1px solid var(--line-2);border-radius:50%}
+.portrait::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid transparent;border-top-color:var(--accent);animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.portrait figcaption{position:absolute;left:50%;bottom:-46px;transform:translateX(-50%);white-space:nowrap}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.portrait{justify-self:start;width:150px;height:150px;order:-1;margin:14px 0 0 14px}.portrait figcaption{display:none}}
+@media (prefers-reduced-motion:reduce){.portrait::after{animation:none}}
+@media print{.portrait::before,.portrait::after{display:none}.portrait{width:120px;height:120px}}
+
+/* readout strip */
+.readout{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.readout div{padding:30px 28px;border-right:1px solid var(--line)}
+.readout div:last-child{border-right:0}
+.readout b{display:block;font:300 40px/1 var(--sans);letter-spacing:-.02em;margin:14px 0 10px}
+.readout p{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:48px;flex-wrap:wrap}
+h2{font-weight:300;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.02em;line-height:1.1}
+h2 .n{font:500 13px var(--mono);color:var(--accent);display:block;margin-bottom:16px;letter-spacing:.1em}
+.sec-head p{max-width:44ch;color:var(--muted);font-size:15px}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{background:none;border:1px solid var(--line-2);color:var(--muted);padding:8px 14px;font:400 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.filters button:hover{color:var(--text)}
+.filters button.on{color:var(--bg);background:var(--text);border-color:var(--text)}
+
+/* case cards */
+.cases{display:grid;gap:18px}
+.case{background:var(--panel);border:1px solid var(--line);display:grid;grid-template-columns:1.25fr 1fr;transition:border-color .25s}
+.case:hover{border-color:var(--line-2)}
+.case.hide{display:none}
+.case-main{padding:34px 34px 30px;border-right:1px solid var(--line)}
+.case-top{display:flex;justify-content:space-between;gap:16px;margin-bottom:20px}
+.case-top .idx{font:500 12px var(--mono);color:var(--dim)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font:400 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);padding:3px 8px}
+h3{font-weight:500;font-size:22px;letter-spacing:-.01em;line-height:1.25;margin-bottom:8px}
+.sector{font:400 13px var(--mono);color:var(--accent);margin-bottom:18px}
+.case-main p{color:var(--muted);font-size:15px;margin-bottom:14px}
+.case-main p b{color:var(--text);font-weight:500}
+details{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+summary{cursor:pointer;list-style:none;font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text);display:flex;align-items:center;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";color:var(--accent);font-size:15px;width:12px}
+details[open] summary::before{content:"−"}
+details ul{list-style:none;margin-top:14px}
+details li{position:relative;padding-left:20px;color:var(--muted);font-size:14.5px;margin-bottom:9px}
+details li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1px;background:var(--accent)}
+.case-side{padding:34px;display:flex;flex-direction:column;gap:22px}
+.metric{border-bottom:1px solid var(--line);padding-bottom:18px}
+.metric:last-of-type{border-bottom:0}
+.metric .v{font:300 34px/1 var(--sans);letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.metric .v small{font:400 13px var(--mono);color:var(--dim);text-decoration:line-through}
+.metric .v .arrow{font-size:16px;color:var(--good)}
+.metric p{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.45}
+.chart{margin-top:auto}
+.chart svg{width:100%;height:auto;display:block}
+.chart .cap{font:400 11px var(--mono);color:var(--dim);margin-top:8px}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+.step{padding:30px 26px;border-right:1px solid var(--line);background:var(--panel)}
+.step:last-child{border-right:0}
+.step .k{font:500 12px var(--mono);color:var(--accent)}
+.step h4{font-weight:500;font-size:18px;margin:18px 0 10px}
+.step p{font-size:14px;color:var(--muted)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.skill{background:var(--bg);padding:26px}
+.skill h4{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.skill p{font-size:14.5px;color:var(--muted);line-height:1.7}
+
+/* experience */
+.xp{border-top:1px solid var(--line)}
+.role{display:grid;grid-template-columns:210px 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
+.role .when{font:400 13px var(--mono);color:var(--muted)}
+.role h4{font-weight:500;font-size:19px}
+.role .org{color:var(--muted);font-size:14.5px;margin:4px 0 12px}
+.role ul{list-style:none}
+.role li{position:relative;padding-left:20px;color:var(--muted);font-size:15px;margin-bottom:7px}
+.role li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--dim)}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:56px}
+.edu h4{margin-bottom:12px}
+.edu p{color:var(--muted);font-size:15px;margin-bottom:6px}
+
+/* contact */
+.contact{padding:110px 0 80px;border-bottom:0}
+.contact h2{font-size:clamp(34px,5vw,60px);max-width:16ch}
+.links{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.links a{padding:24px;border-right:1px solid var(--line);text-decoration:none;background:var(--panel);transition:background .2s}
+.links a:last-child{border-right:0}
+.links a:hover{background:#171b19}
+.links a span{display:block;margin-top:10px;font-size:15px;word-break:break-word}
+footer{padding:28px 0 50px;font:400 11.5px var(--mono);color:var(--dim);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  nav{display:none}
+  .readout{grid-template-columns:1fr 1fr}
+  .readout div:nth-child(2){border-right:0}
+  .readout div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .case{grid-template-columns:1fr}
+  .case-main{border-right:0;border-bottom:1px solid var(--line)}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+  .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .skills{grid-template-columns:1fr 1fr}
+  .role{grid-template-columns:1fr;gap:8px}
+  .links{grid-template-columns:1fr}
+  .links a{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .status{display:none}
+  .hero{padding-top:56px;padding-bottom:50px}
+  .readout,.steps,.skills,.edu{grid-template-columns:1fr}
+  .readout div,.step{border-right:0;border-bottom:1px solid var(--line)}
+  .case-main,.case-side{padding:26px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .dot{animation:none}
+}
+@media print{
+  body{background:#fff;color:#111}
+  body::before,.bar,.filters,.actions,.chart{display:none}
+  .case,.step,.skill,.links a{background:#fff}
+  details{display:block}
+  details>*{display:block}
+  .reveal{opacity:1;transform:none}
+  section{padding:30px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="#top" class="id">S.CICHON<span>/</span>PERFORMANCE</a>
+    <nav>
+      <a href="#work">Case studies</a>
+      <a href="#approach">Approach</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="status"><i class="dot"></i>Open to remote roles</div>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="wrap hero">
+    <div>
+    <span class="label">Senior Digital Marketing Specialist · Google Ads · Meta · GA4 &amp; GTM</span>
+    <h1>I make ad budgets <em>accountable</em> to real leads.</h1>
+    <p class="lede">12+ years running paid search, paid social and tracking for service businesses in the US, Australia and the Philippines. Most of my wins start the same way: <strong>finding out what the numbers are actually counting</strong>, then moving money to the campaigns that bring in customers.</p>
+    <div class="actions">
+      <a class="btn primary" href="#work">View case studies →</a>
+      <a class="btn" href="Resume_Stephen_Cichon_2026.pdf" download>Download resume (PDF)</a>
+      <a class="btn" href="mailto:stephensmcichon@gmail.com">Email me</a>
+    </div>
+    </div>
+    <figure class="portrait">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAEWARYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD8+qKKK6DIKKKKACiiigAooooAKKv6HoGpeJdQjsdKsZ9QvH+7Dbxl2x6nHQe54r6A8AfseahfiO58WagNOiPJsbIh5voz8qv4bvrWFWvTor32bU6M6r9xHziql2CqCzE4AHU16F4T+AHjvxiEktNBntbZuftF/wD6OmPUBsMR9Aa+1PBXwm8J+Ao0/sfRbeC4X/l7lHmTn/gbZI+gwPau2ix3ryamZPanH7z0oYBb1H9x8p+HP2JLhwj6/wCJY4j/ABQadAX/APH3x/6DXpehfskfD3Swv2mzvNWYfxXl2wyfpHsFey9T7U8AVwSxdee8v0OyOGox2icjpXwa8C6Rj7P4S0gEdGltElYfiwJrp7Pw/pNiALbTLK3A6CK3RcfkKtpzUyADrXK5yluzdRjHZDo0VRhVCj0ApXsra6+Wa3ilHo6A/wA6eCARnAqZAOD+FIq9zCv/AId+FdUBF74Z0e7B/wCe9hE/81rlNV/Zk+GeuhvO8K21u56PZySQY+gRgP0r03bzUiKRzWkas4/C2iHThLdI+avEX7CnhS/3No2t6npMh6LOEuY1/DCt/wCPV5L4s/Yj8d6GHl0maw8QwryFgl8mY/8AAXwv5Ma+9MdDUiCuqnja8et/U5pYSlLpY/JzxN4M17wZd/Ztd0e90mbOAt3AyBv90kYYe4rGr9ddT0qz1qzktL+0gvrSTh4LmJZEb6qwINeE/EL9izwV4sWW40PzfC2oNyPs37y2J94mPH/ASo9q9OnmEXpNWOGeBktYO58AUV6n8T/2a/G/wtE1ze6d/aWkJk/2lp2ZYlX1cY3J9WGPQmvLK9OM4zV4u550oyg7SVgoooqyQooooAKKKKACiiigAooooAKKKKACiiigAooq/omhXviG/S0sYTLK3UnhUHqx7Ck2krsaTbsiiiNI6oil3Y4CqMkn0r3L4X/szXniExX/AIpnfR9POGW0T/j5lHvniMfXJ9h1rqvhp8PtE8DBLqRY9R1fgm6lHER9Ix2+vX6dK9Rg16CWWNCEJY4wDzXi18a37tL7z1aOES96p9x1/gvwloPg3TRY6DYQWUHG4xr88hHd2PLH3JrpFXHSsnRgNg2jHHatofdrwm2222ewkkrIcq1NGMVGg6VIooKHgnNSggA54IrG8ReKdO8JaebzUpxBDnaD1yfSvDPiZ+1loljprxeHpvtF2SVzIpAHuD+daRpynsYynGO7Pctc8ZaXoCu97fQW0calmaRgO1eC+O/2uNPslaLQj57K4VpHGDjPOO3418p+KfiPr3ia8uZb7ULiSO4JMimQ49hj2rk0lW4UbNxU85Y5zXp08GvtHm1MU72ifRFx+1j4gm1aBhdu9rbybyQcbv05Hsa+jfhd8fNI8cNcSXU8lv8AvMRozYJHHIA/Hr7V+chLoblWf5mICjHJ5roND1m70WWAxzNFIeGKnjHofbgVvPCxcdDOGJknqfrNpd9BqVsJreUTRnowOauqM18hfs+ftC/6Ta6Jqs8NrGDtQn5R14zn1z2r69gYSxI4+6wDD6GvIqU3B2Z6sJqa0HrxUqjP1pqjNPCE9azSKv2HKvNPA5oRaWSRYkLtwAMmqHqNZAQR2NeD/Fz9kLwl8QxNfaOieGdcfLedax/6PM3P+siGAMn+JcHuc16hffE/QLGZ4Zb6NJFOCpPIqmfi14cB/wCQhH+dVCv7OV4SsxToe00lG6Pzh+JXwk8T/CfVfsXiHT2gVziG8iy9vOP9h8c/Q4I7gVx1fp/4h8beBvF2jz6VrJtNS0+cYe3nUMp9CPQjsRyO1fFHxs+BuneFLiTVPB2onVtFYlntJCDcWv8A8Wnv1HcHrXuYfH06nuzdmeNXwVSn70VdHi9FFFeqeaFFFFABRRRQAUUUUAFFFFABRRVa9vUsotzcsfur60m7asEr6IL6/jsY8vyx+6o6mqdn401SwVltbhrdWOSI+M1i3E73EzPISWNMAya46klPR7HVCPJr1OmX4ieIMnGpz/8Afdeg/A7xhq2sePraC8vpZ4uu1mzzXjQNel/s9gD4h27egrkqwjyOyOiEpOa1P0N0U4QemK20biue0WT5VHfbW6jZAxxXgM93ctKcmud8d/EbRvh5pjXep3Co2MpF/Ex//XXRRDpXxF+1f45vL7x/Po5k/wBBswuQFIOSMnn8q2ow9pKzMatT2cbnJfFf45698QL2Rbqc2+mpIzQW8RxgdBn1OP615XFdm4mRpDyTsyff1qnqE3mu0ZyxRsZDcGtWy8M397as6W0hVujYr2oqFJHjPnqN21GT7cFwoB43D/D2qnebkZIkXZD2x1BxXR23hbUZ4fLFrK4UgHg9B/8Arqz/AMIFqjxIr2Mrn+HIwQKtVYLqL6vUf2TjEvPsysAhD9d56jnmpNO1AvcOJvlEgLEEZxXbt8OdVvsRf2bIgUfK3r+lWJPgpqRKBVKsR0bgnih4imt2NYWq9VEwPtzTo1zbllk+XAHUkZGM9u1fYX7J/wC0Qbu0tfB+vXMk91GdtvNK25gh6KT3A6c9sV8e6l4X1Xwy6maCTylbB2jIHrn3qroviW88J63Dq9p8ssL5DNyQetZzhCtEuDnRl7x+wi84I6YzUq5/CvEf2ePj/pfxR8PWdpNdKNcjjHmwMMFvcevSvb14xXjOLg7M9RSUldEi+tUNdk2aZcEf3D/KtFeayfEny6Xc/wC4ag1ufGXimR7vxVeKGyWcjJPvWlafDbUryESJkq3Q81naknmeMJjn/lr/AFr6K8PSLZ6DBIQCAmelePTXPKVz3Jy5IxseDn4X6wnTP60qfDXWUbO3P517y3iSMrnycD6VXPimI9ITx7Vt7NPY5/bW3Pkzx9+ztq8sM2p6RZ7pwC8lnGP9Z6lB6+3ftz18JdGidkdSjqcFWGCD6Gv0qXxVETgQkn6V8/8A7RvwftPEsM/inQrX7NqyDfd26Lhbod3A7OP/AB769fo8BjWrUarv2Z8/jsJGV6tLfqj5UooIwcHrRX0Z8+FFFFABRRRQAUUUqI0jBVBZmOAAMkmgDQ8PaDdeJdXt9Ps1zLKeWI4Re7H2Feyr+z9orpH5zvO4ADO/Gfw7V0Hw1+HaeDdCjluVH9q3YDzkj/VjtGPp39/oK7S4VoYFy30FefVqczstj0KVLlV3ueVT/AHw5BztJ/Omn4NeHLW3kYW+WC969RljLWwyetZ08AMTAnPGKxTNranxj4qsI9M8SXltCu2NGwBXbfs/4HxBt/wrnfidbfZfG16BwGORXW/s4LE3j+My44HANKr/AA2ZQ/iI+8tJfBUj+7XQQPkVzekuGJHYCt63fpXz7Pd6F6dylrIQ/l4UncRnHFfmx8d9b/tX4h6y0c/2lzcMDIvRgOBx7Y/Sv0a1pUm0a6WRiEKHcR1xX5c6wgvPFuo+V8y/an8vLZ43H/61ejg0ruT6HnYtuyiup1Hwq+HbeILkX12ubOI4RTn5m719HaV4UgeOOMIEQD+DiqXgPw7HpHhzTrdFAbywxwO5HNei6Rp5UAAYPcn1rxsViZVJt9j6jBYONKnFdWO0HwVax7P9Hj2DpuGa69PA+nzxKHt4m/4Birmh2RwMZPFddYafmPkE14k6029GfQRoQStY4yy8B6fbupW0UsPbAFWtQ8EWd6iZt0zH9046V3lvp4IDMOc46VKNPADng5Hep9rU3uV7KmtLHjWq/DDTnaXNsrCUYbeMg/Svkf4//BefwfeyX9jG39nSdUXnYfX6V+hOqafuQ8Y9MV518SfCVv4i0C6tbmIOroQM9vSvSweNnSqK7PJx2Ap16TSWp8K/DPxtN4G1rR9b0+QC8tpsNGSCGXvn26iv1Q8HeI4vF3hyw1aFPLW5iWQoTkqSM4z+NfkfrumyeFNemgQ5CuykDt1r9IP2QNeTXvgzph8zzJrdmhkJ65B4/TFfUYlJxU0fEYduLcGe2qvNZPilcaRdY/uGtlRWN4r40e6/3DXnM9GOrPjachvFso/6bf1r6Hso/wDimIxjqnFfO8iMfFrkd5v619HWS7fDcH+4K8ejvI9yt8MTGMBkIXOBjoKPs0QUjq46jNaNpArYY+nWpvsyCUbFXk16kU5RSPAno2zKtLSJmK4IPvWiNFXUI3glTfGwwQa2dP0JZAHkx+dbEcENuPlKZ9c1vGDWpne+jPiH9o/9n2fwYX8R6TCX02Rs3MSDPlE/x/T1/P1r58r9XL2Cy1Gzms74QzW0qlWSQAgg9QQa/PL4/wDwkb4VeMZI7RvP0O9LS2coOdnPMRPqufxBHvX0OFr+0XLLc8fEUPZvmjseYUUUV3nGFFFFABXpvwK8KR614kOo3KB4LH5o0boZex/Dr9cV5fNKsETyOcKoya96/ZqjaXw5Pctw0rk/TmuetPljZHTQhzT1PW7wEyJk8VFqM2IlAGfelvmxOBnvxUc6hY+W615zPTIHl8yEY4xVYjch9DU11hIhjpVW3yysM0ITVj5T+Mlv5PjSU9Mj+tX/AIAnb47hOe1SfHu38vxSjeoNRfARC3jmIg8AUVP4bOdaVbH3pob5UHrxXQW7/MK5Hw9MeQfSuot5BnrXz73PcS0Mz4majJpngTWLmMMzR27EhDg4x2r86/h/p6674ngEjE+bMCwb65P8q/RH4k2smo+AdchiJEjWrkbSATx718D/AAb055/FUKqB8r5OT2716FKXLRmzjnHmrwR9X6faeV5YxhVAxj1rqdLVYwoyW75rmGv1iRQCEXj5jXVeHoo5CheQYwCcmvm2pTTaR9tCUY2R2miOdgXHNdfpzYAG08Dp6ViaRHEvl7RuyOtdTZWJOQgycZPFcPs5J7HoJq24Rz7Aemcn8akNzIVyE4PTAqRNHllddoJGe1bCaVBap+8kiU4yQzAGrjRqS6EOpGOrZyk7efywwD7dK53X4laBlHfjHWuk8QeIdE05cS6jbKf7ocf41xV74k06+naOCdWwM5BBB+hBp/V6sPeaMvbQlomfDvx/8OLpXi66fygqO24D3NfTn7AmrrL4G1XThF/qrxn8z2KrxXnH7SmgRCWLUSgdJI9n0I5z+Vdz+wJpYtrDxNcBBGGnVVyckjA/z0r6+nP2mGTZ8HiKfs8U0fXajmsjxaB/YV0f9g/1rXTk1keMxjQLsjj92a5OhvFao+OUz/wlD8Z/en+dfQ1sT/wj0K9/LFfPVswXxMwznM1fQly5g8JrKuAUizn8K8ajq5HuV/hic9rniW08Maa1zeXABA+WMdTXkmo/EXVvEdwZbGdreAHCoh/nXmPirxtea/rl5DcytIsblVHQAfSotFubq2mzBnaB0Br7Ohh4wgm0fGVqzlJpHpOofELxdp8IH2iUoB1BrBuPip4gdTu1KWM+mcUQ+NpfJMU0G44weKwdRt21FSzxeUGOQRXQoxWrRg3J7MZqXxP8Snj+05SD0O6ub13UtY8Z28Nhe3bTI8gKeYchW6A/59alvtLlgI28jPpVSCSW1uUYnBRg2MVuuW147mTvezOAv7GfTL2e0uozDcQOY5EbqCDzUFex/Grwqmo6HpfjOyXIlC2l+FHRwP3bn6gFSf8AZX1rxyro1VWhzL+mRWpulPlYUUUVuYmJ4kvNkaW6nl/mb6dv8+1fTP7NA/4owf5718mahdfbL2WXPy7sL9O1fXH7OEe3wPGRXm1nzO56GHVmkek3wzcc9qq3SSSREn5QDxmp75m8zHeobmN5I1wSNtc52leVmaIBx2qG1kxuFTzbvK+YYI/WqcD7d1IXU+d/2hmH/CQwYHOTVL4Aj/itUPtU3x/k8zxLCO+Cai/Z/P8AxWX4CnU/hs54/wAZH254ayysxrp7c8iuX8ONthaukt3BxXgPc9pPSwniso3hbVRJ/qzayBvptOa+J/2e7JJ/EN4xyWSMkLjpz/8AXr7M8T67BpViYZIvtU1yrIlssgR5QB8wXPU49K+YvgFoAXxz4kZIZIrJDsjSQYKhmJwffiqlVSozinqbUsPP29ObWjOxuxNcuWVykanEaIhZmNSW3hfxNqAItmuII8naXITP16n9K9k1bWPD3g/Ss7RNeYxHbRruZ2x0rxnWZfi14zWWXSorfQLctmKIENIV9WJBAPsK5qFZtJKy9T1KtBJuTu35GjpGpeOfDWoxQT3HmQL/ALeTj8q918D+N76W2QXDZmIwcHIrwO1+H/jiOymfUb959UDgxlrhTCFwOGBXOSe+a7j4faldadKbS+AeUEDen3Tx2pYlve6fodGEve1mvU9t1/xVfDS98LlWA/hHPPWvGfG9hq3ie4RjqUkcbcH5iGA+te0zfZ5vD8bLFt3AZavD/iJ4X1q/nj+xyGKw/wCWojcq7H0zjjj+dc1CtKUuVOx2V6Ste1yfwn8GNKEj3M1+8k7nLlpck5HTrWtqnwsOkWMrWMz7jlgFk6/hjFeWeF/2fvFWozm5Pi2S0jErSiLJ34wMDPtgV6n4O0Xxp4Uzb6hqKa/aA4VmGx1H48GuutUdNaTuedSpKe8OU4f4oeHrnXPhXdfa0xd2Tb8sP7p/wrZ/YPkL6J4liAKiOePPHQlen6fpXf8AjLR01Hw9dwBQrXMLRsBzgkVifsu+H3+GPw/ea6hVptSm8+Vix3Z+6FAxxjBqsNioqjJSfU5MZgqlStB01fQ+ikTkVi+Nzt8P3nH8B/ka3rZ0uYY5Y+Y5FDKT6GsTx4Nvhy84/wCWZ/ka6n8N0ebFNTSZ8aWS7vE446y19B6sD/whrADJ8jp+FfPulNu8Tjj/AJamvofUQP8AhFgD/wA8un4V49D7TPZr6pHxc/haZ9Xvp2jwrSsRxW9o9obBgWXcvpiu01W3QmRFTYCx5xVe20UtHu25GOtfVOu+VJHzEcPFttnM3Vkss3mKmAaV4SYxGTgDtXQtZCMlWwB9KzLyBd5CD8qy9tI39jAz5NPV4wSgfHtWfqPh+HUoyAnluO4rqLOynkUBUz9a3dM8KXF+yokTPIeyip+s8vUToRa1RwXh27WLStR8J6uC9jqMZgD4zsb+Bx7qwBH0rwbU9On0fUrqxuk8u5tpWhkQ9mU4P8q+5/D3wbhN4l3fIQyHIDda8K/a/wDh8PCvjiw1u2jK2etW+5iBgCePCv8AmpjP1JrqwWLpTrOnDrr8zhxeHnGmpy6fkeCUUUV7x45wOOuK+yf2dYjH4EgPqBXhfhX4GXfiDQ4L7zWTzRkAYr6P+F2jHwd4Yh0+U7nXjJrypnp0VaVzodRdllJXORUdtLLLKFYYX1q1PIkgzsBqv9q8tSwjGBWR0jr1MtjAxWW0ao/HepbjVHZSRCf1rHutXnXkWxP50FNo+dPjtLnxcBngA/zq1+z3GW8YE+wqX4m+D9a8T6+91BZkJjAzWl8DPDd/oXiz/TYTFkDGaKrXsrHLBP2tz6+8Og+WwPFdHbjFc94fB+ztXQwDPFfPbM9roeffFW+lh1XTprePfJZxPMM+pG0VmeBJJr6PUdQltI7e8kcBxFja+1QA1bvxh0yU+F9Ru7ZC04hjU467QzZ/mPzFZX7OGnfb/B05ncSSPNIeuSOQP6V5M3dtvufaQS9lDl2sbmn6O2o3qyTYMg7kdK9H0vw1GlsGaR8HBwpqjb6SLSaPamSDzu7Cux0eFppEXAIAzxWcpOWiNIUlHU5nWtJSGGRgmyPHOeTXF2sUR1ZREnzZ4HoK9G+I9zHpeklFIe7mJjhi/vN/9br+FcZ4J0K7Eiy3f+sLckjAq3e3vF8qbXKeo2kca6PEjqSu3B9vepbXTIZ1w6Bwv8ZHWtiPRHh0SB5FwkoyjZ6ise2a40x1EkbPAwwD6GudwcZXN1aSJk0K3gYbIUAPXArQh0hWs23KAB0NFreRXcqoDz6HtW88Sx2Z2ttPcmq95q7MnCMdDy/xNpptIWYHjsD2rb8CWUJ8E2shjVlhkZ2BXBxuOf5mqnjeZBC465Gan+HuoGXw0kHlkIkT5c8BiWIApR+B3FHSpod5pkYS32IMIrEL9M1i/EI7fDN6e/ln+Rrd0KJl02HfyzAsfxNc/wDEx/L8MXzD/nmf5V9HC6pK/Y+KqtPES5drnxroOZPE4z080/zr6N1VQnhsf9c/6V87+Foy/iUZHHmmvofXGK+GeO0f9K8qjsz0q+ljxK5tTctKD8q7j8xqlcXAsoDEjZPT3p8tzc3czwwjA3HJArZsPDUcah5uXPJzXr1K0aa1Z46i3exy0Wm3eoOCFIye9dBp3gvy1DzDJPOa7Sx023WEcAEUt3KIV2r0rzJ4mdTSOh0Rgo6swbLRQ90kEcYJPevVvC3hSLRxHKyBpMZNY3w70c3t+9w65UDivTfsm3t0FVSTbv1JbVtTD1CDZMDKoaM8q4OD+NeQfta+H7XxX8FbqaFD9u0WeO9j45KfckGfTaxb/gIr3ma2SaIxuoZCOlct4o8LDU9F1DTZV86zvbeS3kGMkK6lTx9DXapSw9RVYq5zySqwdNn5aUVPf2Uum31xaTrtnt5GikX0ZTgj8xRX3G58kfQngTR7pPBmnNDKFHljv7VstYajEoYy5z71e8HQeR4N02P/AKZDj8K05IcxKT2ryLnrqOiMKF9SQ7QwOKe+o6hHwRkdK1EhG44PJ7VDNaEDB65pXK5WUW1XUI4wfJyv0pBqt4UyYAR/u1oyx4t8VGkgCqgXOO9ArGSL6aWYBrYAE8nbVBAqeKbfAAPHSurkX/R845rkQxHi6AVjW+BmtNantnhshrM+tbtsDmud8ON+4b0robY8g14XU9FjtcsvtekXBQI0qISFk+64xyp9jXPfCeKxhvtaOnReRD54Pk/3CUGQK7a2AbG5Qy91boaq6D4cTSvEt/dW6LFa3oVtinO1hn+h/SvPxdOz5oo+hwGITh7OT1Wx015ZJJaxXC/e6P8AhVjSLxIc5wOOmaS7LQK8ZzsccAn9a5u5vHg34JIxjg9q82Mmnoe8mramb4wvJk8Z6TqnkG+srXzEkhB5BYcMB3xVabxPrcV8JbaO1vNPfk2oUpMh9iTg/Tj60txNLeOPLiJVzgOelS2E9jpbq15NEjbgCWNd/L/MYxqc3wHR6drGravaPEjfYAqEo1ypYD0+UH+tW9J1DX/ti2F80F5AoBF5EpjHHbaSf50+HxFo8RWZLmHYRjK8/hVy11DT78Oba7jaQnKqGq3FWsClOLu1oXL+3azuUuoSQpPI9a15NZL2oJbHHNclN4mniRoZFwinaN3Wr6ZnsxK52qRnbmuOonT0ZcaiqbGD4lma9W4Y/cRSB9a3PAlhcjRtNRowLWX5d2eQCxPFc7r8og0qV8fe6c9ea9Q8M6DJp+l6alxM0rQxLiPaFCNjn6966MPSdX0POxWJjQvfd7HSQrtUAAbQMD6VxPxTcL4Vvj/sH+Veg26BkGa8++L6CPwnfj/YNe9NWgz5Kk7z+Z8ieEWx4mA65kNfQniBN3hzaOpjH8q+evB4z4mAz/y0P86+lt8KWlv5+PK2jOfpXi0Foz2q+jR5DY6ctumdm5yecCtWG1cjJhf/AL5r2Ow0TSbqISQwqydyBxV57C0tI1QW6sueK7PqvPLmkzyfaaWR4mIpwCFicH/dqGW1nkB/dsa9ovLK3icsIFAK9Md6wXhiiLFo1UH2p/VFfcFUdjG8E69HpsQgmjMTf3jXolncC6TKMGDDrXi3jTxha2kgs7aNZJ3OAF613vw/vZINIja4bLGtnTVJp33JjNzvHsdc8LRr8wIOKrSLhC7EBe5NWFvjeIWIwAcCsjVpzNc+WMqiDlR0Jor1Y0Yc4oJzlyn5wftDaKmg/GfxXbxLtikuzdL6ESqJD+rmiu2/bO0wWXxXtblRhbzTIpCfVld0P6KtFfWYOr7bDwqPqkfNYmHs60o+Z6JpUQg8OaeqnGIhxU5BkUDd+FV1LR2dpEcgCJeMUgk2DjP5VxnorYtQQCJyWbmiZS5+U1QFyxPI/SpEl3PjdikXcsmHemD0ppiVRwOlQyS8/eFODM0ed340xXJNuY8HvXHOB/wm0K11Ue7zMFsj61yuc+P419BWFb4S6e6PY/DWTC31rpIF4rm/Dp/dMB6109qCAK8PqeiadqMgVpQAgq3905qjarwMeladsuQBWko80XHuVGThJSXQ0L3bMscq4JHBPpXL6vp7TRy+URvHIHrWxJcNbbkbhcEisme5LnA4B9K+cs6c7PofZRlGrDm6M801/U/FVjEsFjBCtsx/eSjO8DuRxWFZ6NqUl+jy3SbZM58xdxP68V7ZDFEQpYZ9/SsPXdGivpS8aRLIo4I4P6V6NPELZoVKKpO71RS0LwHPf2kiSalHHtGTtAXjp3PtXK6hoV6uqJZWN7cSvux5qgDb75ArsNK0XUrgqquEU/eOzI/PNdrpvhuOziXcytIDn5QBW88QoLQ6p1YVNomX4Y8CpYwQ3F1c3V9MBkvdSFsnvgdq6i5lURLEMBQMcVbytrbeY/DY49q5TVdUW2hklZiVXOK8aTdSRmuWCbFmtT4g8VaTpUQ3RCTzZsdAi8nP5Y/GvbYhyAa8q+CNp9tGp63MP3kr/Z489lGCfzyPyr1aEjdX0WGp+zpo+OxlX2tV+RpQjCV5v8aH2eEL/wB0NekxHKYFeYfHA7PBt8c87TXTU+BnFR1mj5M8EgP4kQ553n+dfROtcaRHgZOF6188eA4x/wAJDGQfm3Zr6H1jP9mxjPYfyrxaD0Z7eIKPh/XJ9EkIOfJbqp5Ars11dLuBZYZAcclSa84lV1jcAgnrzVq186SAvFIbeVRkt/CfrXtLVWZ4N9TtrrVFkALN+Fec/EDxsNMtJVgOZcYAHrVDX/HElpp0mweZMuVJTua84muLrWrkyTc7+evSumhT9q7PoZVaigjB0rVLy58Rxz3B8x3bJyenNfTWiSBNOt+RnbnAr5usrMR+IIUB288V6zcarqvg2GOe7heW0Kgh0GcD6VWY4eVRR9n0IwdVQcnM9WsrokHnj0zVi8sjcN5sTAMw5U968H1T44Q20kRtVMvIyAMCvZ/Cvia18T6Pb3UUio5Qbkz3rz/q05U7Vo6Hb7aHP+7Z8i/tx2E1v4h8LTzReW0ltPGDnOQrKf8A2eitv9vlW3+BS3PF8Af/AAH/AMaK+mwMFTw8YR2V/wA2fPYt81aTf9aGbF8V/Cs1pBm5jLqgGd4p6fErw1KPluF/76FfDWWHel82Qfddh/wKs+Q29s0tj7ui8aeHZiCLtQPrU48R6EzErdpmvhGK9uI/uzyD6OasDV71Ol3MPpIankKVa/Q+511TSJeRdIfrVmO700pgXMfPvXwtH4i1OPG2+nH/AAM1aj8X6yg41Gcf8Co5GP2vkfbRmsY33LcR/nXHWlxHc/EgCNw4C84Oa+Xo/G+urx/aMx9s16t+zxqN1q3iiea6lM0nHJrnrxagzWlUvJKx9aeHwAGGK6e2OQK53QV2q3vXRWwzivC6nrI2rJcrmtS2AGKyrRsACtOFvlyTgeprZCZDrq4iVx2Un8q5qLUE8xgWAyOBWT4T8f3HxH8SeJZNOEbeGNEmj01Z9uTcXTBmkIP91Qqgeu7NV9SX7NeSxgkAn5WrxsVDlrNPyPo8DPnw6aOxsrlZ4X4I2nBz2NZ+oX0dm+4cnHJPFcVJrV1aPhmdCOdy9GqG48X/AGhCsv3wcc9DVU6F3cueJ5VY9B0nxRsDJEpJb8hXX6HqC3W5niOePmPTpXhFl4nELA+YuFOQN3FbkHxBd4gtvEzS4wT/AAgV01MNzI544uz1PUvEOtQSBYVcFBy5HUV5vrmqNrV8tlASIAcyHPb0rLS+uryRkUmWeQ8kE8V1OmaEljYl2GZWG5m9643CNF+Z1wnKstdj1X4U2y2nhBABgNM7cfgP6V2EMu5s15b4C8Tz6Frlp4U1UJE2pWP9q6VJ086MuyyR+7KVDfRvavToyAQAa95RcYxufJzkpTlbubFrLheTXmXx2f8A4o28OcZU16LBJ8ma8w+PUmPBt2M9qVV+4yqC99HzD8PgD4gj4/ir6C1tttlEe3FfPXw4Yt4liHUbq+gPEzFbGNRXi0XZHs4jcxoZN8xGcgdTVXV9ROoM1nZ5WJB+9kHQn0qrdTyOi2lrkzPwz/3RRcN/ZlssEafMfvE969uLsrs8B7lTRdH+2idZEygOBmuc8W6DPpKPcWigpzkAV23hm6K3DxONuetaF9BFPJJbsoZDXAsTLD1nNbdTZ0o1admfPttqw+2QSMMMr/MTX1z4dgs/FXg2zMsayq0QXOOnFfMnxB8EyaUzXdopZM7ior1P9nTxzHe2DaRM43qMoCefpX0VWpHEUo1ab2PLpxdKo6czzv4xfCyXw3dyXdnCTaOSzBe3vVH4SeNbyCYWQbcqn7p/iFfV3iHQ4Ne0ya2mUMrqQM18keKfC118L/GqTqpNlJJlWPQe1KnV9vSdN7jqU/YzU47HM/tl61/ak/hGLMgMKXTbH/h3GLp/3zRXP/tYa1HqviTw4kePl03zTj1aRh/7JRXoYFyeHi5b/wDBPPxVvbSt/Wh8ng8Up4IpF596U1I7CgACnYyKaTinKcjFA7CqMfWng00mnL1oGSRjFe4/swxbvEE5x0xXhynAr339lOHzdduOM9K5sR/DZvQ/iI+stI+XeMelbtu2BWPGFt5Gz8oAySeBXGeMvj14W8EK0b3Q1K9Gf9GtGBwf9pugrxKdKdWVoK5686kaavN2PYLV92K8L+P3x8/skXXhXw9NvvmjK3l5E2RCCOY1P949z2ryLxV+1B4n8SyTwaY6aNYYIxbjMhB/2zz09AK80gmeSSSSRyzuSWZjknPXJr6XCZXKL5633Hj18cp+5TPvn/gnv4VtvFH7PXjDTww+3rrjzB+4byItpPtwR+dTeLdCubPUrm1uIWguYCdyMOR9PUH1rzr/AIJxfEEeHfiBrXh2eXbaatCjoCePNQnn8mxX318Qfhjpnj/Tdso+yahGD5F7EPmQnsw/iX2rxszwDlWk46P8z2crx6o0VGe35HxPPbuY9hXJ+nBrEvNJmJJWDLdq9g8S/DvVPB+ovZavblCeYrpRmKYeqn+h5H61gTaU4b5U3kenNfNRqToy5Wj6p0oV4qcdUeZ2uiX8kv8Ax6nBrpbDwbdykGfCA87U612VhGEGHQBhxyK6KyslxypLMeoGBWk8XK1kKngYt3Zj+HvDEdoiYTB7k8mumsPDFxrWqWml2iF7m5kCYUZwM8n2AGea2dL0S4uruCzsoXuL+Y7UijGT/wDWHqa+iPh78MLbwLZPdz7LjWZkxJOB8sa/3E/qe9Z4PDVcZVUn8KFjsZSwVFxWsnsj4x/4KETSfDW/+FmsaIVhu9DMsUL+oAjyD6ggHP1Ndb8FvjRpXxi8PLe2bLDqMGFvLEtlonx1Hqp7GvKv+CnfiSK58R+GdFjO6W3t5rqQZ6B2VV/9FtXxl4C8e638Ptch1bQ717S/i7qcq47qw6EH3r9KngFXw8Ut0fmEMY6NaXNsz9cYZMDFeafHxs+Drj6V86/D/wDb0vrWWODxdoKXMZ/5e9Mba34xtwfwNep+O/jF4S+JvgqU6Dq8NxcbNzWsn7uZPYoefyyK+axWDrUacueOh9DhMTSq1I8stTyf4QWhu/GMCDu3Svoz4i6S9tZR+Uvz4HSvnT4Q6xb6P4tjurg7IUPJNfRGvfFHQNRbmZGXHHNfOUJJQfc9+tFykcXot3HZnypIH3n70mM5NW9ShjniZ44iG9DzU48YeHyc+ZGPyqRfFmgn/lqgH1Fd3tm1ucP1Y5nRIport5pkZQx6Zrp5I0lIkXOaT/hJdCP/AC1jqRPEmiEf66MD61yTXO27msaXKrJGdqGmpeQPFIm4N615Jd+HNS8B+KYtT0tHaLzNzIvpXuI1/Rn/AOW8YH1ofVtDkHzSxMPeujC1ZYdvW6ZjWw6qrbVHWeH/ABPDrGj21zJ+6kdAWU+tc/8AE7w1YeLPD06MEeVVypxzmqseraMqBUnjUeinFPOq6S6kfalx7tW0a0oy5kQ8OmrM/PL4t3dxN41uba5OXskS2HPYDP8A7NRWX4/1tPEnjjXtUiI8m6vZpYsdkLnYP++cUV9tTVoJHx83eTaPIwSFHrmlJzikZTGWRhhlYgim781xnQPHan5rd0vwPqeq2JuoYTsHIGOtZ11o97ZSbJbZw2cYAzSTvoh6rcq08Zq9FodzkGZRbr3MhwR+FaMdtYWS5CG5f+9J0/AVvCjOZDqRiY8EEs4IjjZ/90Zr2X4E+NbP4XzXuo6pA8khA8mBSAXOO57CvN21GRgFQBFPQDgVAS7SDcc10/UVUVpsyWJdN80T0n4ifHXxH48uZkFwdO09uBaWxKqR/tHqa872szbmYknqSaekWeQMjpS3hMFuxBIGMZNenSoQpL3VY4qleVR3k7l/TE8u18zvIS307CrSkjIYjGM1Dp7wvbIkbq6qAMrz0pzukatIfmz0UnrXVyqysc/M76nefB3xk/gb4gaNqiybVjmUSdsITg/lwfwr9k/hr4nXxR4fs7xiC0kYzg9TX4VWVy32tHYjJPT2r9Zv2NvGI134P6RN5nmS2u62nJPIZT/gVP415GPp8yVRdD0cJU1cD6e1Xw/YeJNNew1C2S6tZP4GHQ9iD2I9a+d/iP8ABfUPBTPe2vmX2k5yJ1Hzxez/AONfRem3YnhU7gF6kk44rw74k/t2/CvwFqd1ocmpT6xcQkwyvptr9ohWToU3bgGIPBAOPfNfPV8BHGqyWq6nvYTMamCe94vdHlEQfcCTn3Jrp/DGgal4p1SPT9Jg+03jYLMfuRLnG9z2A/XtXBXP7ZfwRuYpZLjw/r8dxLyz20aQqOM5VTKcfTmu6+BP7eXwri1qfw9Npc3hbT3kH2bVpcSRy5wP35BLI2eNxyD7V5FPh/Ec96vwnvVuIqHs7UF7x9VfD74b2PgXTgqYudSkUCe8cYZ/Yeij0+nfNb2rsIrJz7VZsr+21G2iubO4juraVA8c0Lh0dT0II4Irlfit4lh8H/DvxJrlwwWLT9PnuST6ohYD8wK+kpUVBKEVZHx1WrOrJ1Ju7PyC/bC8bDx18dvFU0TGW2sbj7BCwPBWL5Tj23b/AM6+fgpWcgg89x3rqprp9SuZ7yYl5biRpHZjnJJyf51jX1pn54VyQc4FfXKnywSXQ8ByvJlO+SRI0kj+bB7elPtruSApIrsrAjBB5BqWZd0ZzgLjqTiqlw6/ZA/AXGKrlutSVKzuj0DRfHVzHGIpnMqdyD835nrXRWfjKxvSsb3zWZ7+dGcD8RmvHtOuDIh+bmtNZmiADcj0z1rwsRkWDxMufl5X5Hu0M5xVBct7rzPoDQ/CGreJoTNpF1DqMS/eNvIGK/UdR+Naw+GfimNSfIf8DXzvofiS+8PX6XWn3k9lcx8rJC5Uj8q+i/A37Zuq6ZbQ2viLSLfWwvBu4m8qYj3AGGP5V4Ffhxw1pO6Pao58pfxFYr/8K68Uq3/HtLgehpz+A/FKD/j3lx7V9DfD/wCPXgP4hTR21tdjT9Qk6Wl+gjYn0VuQT+NemjT7ZuRGpH0FeFUy72TtNNHqwzBT1i7nxZ/whnihAB9nnx+P+NMfwj4lQ8wXH6/419pPp1sx/wBSg/CmNpVuQSYl/KsPqcO5r9cl2PjBfDviNT/qbjHfrWJ44fXPDXhXUr64E0KJEVDMSMM3yr+pFfc/9kWveFfyr5M/bx8U22maR4f8KWgVJ7qRtQuQoAIjTKRg+xYuf+AVvh8BGdWKuYYjHSjSk7HxpRRRX3B8WY1x4RvdZ1F2sYvMVgC2P4TXVeG/gxdSSJLefdByVxirHhPWzoesRzEjynHlyZ9D3/A4r2aw1eCaIM0sZ9t1cNWMk9DvoKMlqZMNkuh6b5caBYo154615f4v1W4m37m8kE8bBjH5V7B4nvYZdHMcZXc7gcHt1/wryLxbaebDnGSB1AzXZg6Ss5S3M8VJ/DE4KW4lLssrbm7n1qRRuUYouEzGr45HymprVQVH9K9WMLM8hz0EEZxk8GpI1/ec1aWPauMYz/FUYQLyPXvW6hYxcmyS2AaQ9qi1AhVZckgj8qniO1jwDnsTVLU38qaJyN0O7DinJWiJasrafo8lzOGhka3UHl1OP/11soGEskTuZCOAx6kVftVBUBAMHniqzRH7QT154NVGmoq4OTejKu1oirDGR39q+3v+CdnxB8nxNq/hS4lLLqEK3FrET96VDhgPcqc/RK+K5o8pnjn2r0D4AeO5Ph18TfD2vq5T7DdpI+O8f3XH4qWFRVpqcHFl058k00fo9+3Ivj2D4JXVt4PuzaWkqldUe2z57xZA2Kw+6vXdjk59M5/KTQNYltJHs74kAHcN3BBG44P1Jr93fNs9f0ULKEudO1CAOM8qVZefwOa/I/8AbE+Bc3w58Y3l3ZQsmnyzFoZFTAKE/wAwcivGw9T2T5T1atPnVzzR9GttQIlRAQoA44/ug/zNaGpXNv4f06JVX9+68r0x14qt4BuBqGnbMHzVIDZ6dc/0HrXqn7N3wRk/aB+O4trtWPhfR9t7qLAkBog2BGMc5c8duMntXvuSp03U7nmcrlJRPp39h/Wvir8FvhpZ+JvEkdzq/wAO9Wl3x6UAZLqwi6C4iTrsY87B1AyOvPsH/BQ34nWlp+zXHb6bdrKnia5hgikib78IxK34fKoP+9g9690vNPt3tLK0trdLeygRYooYxtVVAwAB6AV+bP8AwUK8czaz8b7fwrA+zTdDtFf7NHgIJpFDM2PUjb+VeFRXta6Z6FT3KTPmJQQuMjPXgVXkOW6EY6471akJxnB4HpVJsgEA9+gFfT9DwyqlrDLclrks+T8oP3R+FM1xUjt9gxtxxgVMz7ZOR+GKz9dcLbovc/pWctikV9FJbjPOa251JCMSfcVi6MmwcdTW2lu0yruyfanDYTKszAnK9vWrtsMbTk7jzULWo83bt/CrNuAHCgcjgVVh9CwLh4biJI3KyffJHUAHjmvpT9kv4wanZ+MovCuo3cl3puobvI85yxilAyNpPZgCMeuK+YNNLTajfSkZVX8peem3/wCvmui8M65P4e8R6dqdqdlzZ3Ec6fVWBxXFi6Ea9GSkjpw9WVKpFpn6kOmCaRjgAUxLnz40kxt3qDj0pCdx64r8zejsfcDmZURmYhVAySegFflr8fPiH/ws74q67rUUhew837PZeggj+VCP97Bb6sa+2/2vPiiPh38KrixtZtmsa7usbcKcMkZH76QfRTtz2Lqa/OOvZwFKydRnk42pdqmgooor1zzArv8AwTZjxBYPGtw6XNvgMobqvY/0rgKv6HrM+g6jHd27YZflYdmU9RUSV1oaU5cstT0LUbA6XKsUlyXkK7wjdQPWsTWRHeWLGMgkDBAq9qdnF4gtxqVvLtvXX7wPHtXA3F5eadKyPkHJzmu2grQRFZ3ZlSW+ZpoDxkHb9etQaewZBxg9DVt7ky3CykcgjOKrSqttqssa42Od6/Q16EXazPMlq2kaigFVA6VEYwASTkk9DVuGMhP9o96ZcoQuQOfQVvYyRRXJkGemeKLqBbm3dDyCMcUp3LjjGP8AJq1EARz196W+g722GeH7kyWZik/1sZKN9RV112uMcCslW+wanHJ/yzm+Vu3PY1v+WGXIPPWqprSwS3uiB4gyBduPemWEv2a8RlGOeatIh28DOOevNVZ0KSrxjHJqmhXP2J/Y48WR/Eb9n3w+zyeZdaehsZuckNH8oz9V2n8a8j/4KOXem6J8KsSW8b3skyRQu/8ACTuz+mT+FYn/AATB8aJs8U+GZJAGcR38MZPX+ByB/wB8fnXkf/BU/wAezXPxC0jwzFKfs9rardTRA8GRiSpP/ASfzr52dLlrtHtQnelfyPlqDTEttR0iHZGHkRFkOMH5kJPuDx1r9B/+CYTWwHxRsUtrWMQGzcSj/XOP3g2k91HB6da/Pvwzdf8ACRaxZ3XI+zhcxsDkEDHHWvob9ib4qXPw9/aLjsJJQun+JUOkzgkYV3IMTcdxIFH0Y17NaPNRfKefTdqiufrJa+XdRQy4wi/MR6V+L/x28Snxp8cfHGsly6zanMiNnPyKxVf0Ffrv4k8WReEvhX4p12UhRpWn3M7Z4wUjJ/mK/E23lkuy88jZlmYysx7knJrz8BC83I6cXK0VEdNLtTacZ9RVNwro20nNWLnlsCoJsRJgYA6V72x5KZWQG5nxuOFGOazNXuEmOFAznFabObe0kkHDtwOay47Us44DZ6nrUPYa1Za0KLcoyM8810JiEaEjA4qLTrXylB6Zq9ODt5I9fpVxQnqY8+I23Z+b1p1jIIhLO5OxFZz+AzVbUDhjg8scc1LqamDw+UAPm3LCJQD6nn9M1LZSWxNoAMWkJLIcPL+8J9STk0i3DyXGYsgA5zUkkbeXBbIpURj5sdqkEISPaFwg607XVib2Z93fsrfFm/8Aib4Nu4NVPm3+kukLXOMGVCDtLe42kH1xXs81xHaxSTTOsUUal3kdsKoAySSegFfIP7Ffjm103UNd8OTqsUt6q3UEp43lAQy/kc/nWr+2T8cF0XQT4H0i4B1DUYw2oSRn/VW56R/V+/8As/7wr89xmGf1yVOKsn/Vz7LDV19WU5PY+dP2ifiy/wAXviTe6nE7f2Ra/wCiadGeMQqT8+PVyS30IHavMaKK9iEVCKiuh5MpObcmFFFFUSFFFFAFm21i90xCbV+nOxuhqhL4l/tBpBeW+S3cdRU1Z1/ZAsZQOP4h/WumlP7LM53tckQxSAeU272xgj603U4iyW1wMZjby3PfB6fr/Oqi2RkG9W8th0Iq1FdtLBLZzna7LgHsT2P516GqVmcd1e6Nq0wyKAcjFPnjJiG7n2Aqjod19qjjc9SOR6HvWs6FQRkkiumL5o3RjJcrsYkyctkE/QVLbkHC84FTXCFWORioI9qscsBSegDr6zFzbMvIOMq3oR0q5pF19qsww4YcMO4I60Rjeo7DvVe0H2DVWXH7uf5x7MOv5jmq2aYLXQ2BFgjH3SPxqvdIQMAZz71oqo259e1RXUQMXHWtmrkPRnuX7D3jVPCH7RPhN5JjDbahM2mSc8N5wKoD/wAD2V5j+2r4wfxn+0j4zkZy6W159jjBPRYwFx+YNc5oN5Npmow3MErW9zbyLLFKhwyOpBUj3BGa47xv4gn8UfEHXdZuv3U9/qE1y656F3LEfrXnYinaan8jtoz9xwO88D24gQMY0DEZO0L/ADFP1Np9E8Qw31q7W1zBMJYpYyMqwIKkY6YOKk8DmKSNSH3Nt5yQc/pWj4lgKzhg7Ag9yT/IV6PJ+7Rz3fNc+8/j58Zv7f8A2MPE2qxyKk/iF9PtlVDwGnRJJVHsNso/Cvz2t0URovQgcYro9V+It5qnwk0LwS87OlprU18wJ42rCixjHXAMktc+SQOOcetcWFp+zUvU2rz52mVrgZYEHJFV5vm4HJqedskknJxUMSgsXdgVX09K7tzjZXu0LyxRjOFGTgdz/wDWp1tAJJRtAx6d6d9/cSM7juwKuWVsVcEngc4pWBF+JPKjyRjgUSnKc9B6iklYZ2ggA1HfTCODHc9hV9BGDMftF2EB7+tX52F3rVpaEEpap5rehY8D+tQ6LHuvpJHHypk5qO31FLVrm8YcyucBeS3oBWXS5fY2pjFboZJXAHV3Y4zWNca/JdErZwExL1lk+VT9O5rLGoXGvXJVcOoPBPKJ9B3Pua3o7OHTIjcXMnmyY6t1z6Ci+l76E2u7FnTfEVz4Vki1C0maG/QERuvBBII6enNc1qWpXWsX897ezvc3c7l5JZDlmJpl5dveztI569B6Coa8DEVFVqcyR6tOLhGzCiiiuc1CiiigAooooAKTrS0UAQrAEbjhc5xSXln50W7bgj7rjtU9Ryyzw5aMeaveM9fwr0KVdW5JnJUpfaiZvh67NvcXMDYBRz+RrsI1MqK6gHjvXAT3ca6xFNENhkG11Ixgiu10+5zDjcceldeHlvHsY1VswvIyyevbp1rNYBJMEc9a2ZoyyMwYn8ay5EJc5HvkV0SWpzosW7fL39cmnalbtLb748CWEiRPcjt+PI/GooiVbHI9DWjAcBskkjPahaqxd7almyuFurVJV5DAEfSpHTKEnp2rJ0Vvs2oXNi/CH99GM9ieR+B/nW/tUIQWB9K0g7oUkZcIaK4z681yPiyy8jxD5ip8ku1uQevSuzuFIbOcdxWT4qs/tENlMAMhgufx96irHmiVSfLI6jwUz7ACCq7Vx97+orotfi8+MsYidozkA9PzrmfCpRUJ8zPAAGAO/wBa63UCq6e8gYbVjychc9Pc12U1enqS78x5lo2bnWtQkGREsmxR2GAM8fWuhl/1e7vWL4UixamUjJncyc+5z/Wtu5KlOOO9csFZDnuU5Ock84HfimOg8kIAf3nX1xwaQIZJUQfMSeakCb7xuhRSFUf5981psZofBFsXkZ+vSr0QAAJx+NRxRFxweR71LLJ5MBUEg0DI4iJZTwPl9O1RXX76TJyR0xUMVykcbEsNzcYqaN127myEUdfU+tVckqXbjTtJnkAKlztGK5hPtGuXK2kI8tE4dh0Uf3f8a1fFNy0sNvCjBCeSR0H0qpZakllH5NogwOre/qT61z1JKO+iNIpy2OitbK20Gz6qqgde5PtWFf3738u5vlQfdX0qK4upLlgZGJx0HYVFXkV8R7T3Y6RO+nS5NXuFFFFcR0BRRRQAUUUUAFFFFABRRRQAUUUUAZ+paPFqBWQHy51+647/AFq5prSwARy4J6Z7GpKOlb0qrpO5lUpqasa7SZjwp/OqEgKydBz6mhbskYfn3HWh8Ptwd31r14VoVPhZwSpuD1GqNpB4zWhblnAJxjHas84CgVctm/d85z29hW8SGQ6mrWz296oyYWyw9UPDD+v4V0AxMqyK2Q3IPb61myBZYjGwBUjBqPw1dbIJLSXLPbvtIY87eqn/AD6U9pDWqNGePcScZUVXv4DcWJBXcFYNx9RmtFivI45HeqxTKzRH+NTgk1o9rE3syLQ5Y4mK4+YFsgkHofpXQeMLwQeG7/adrshjUj/a49Oetc1pMz+dyzAfMcZY4q947vGNjYWwY5uLgZGT0Ubv54q4ytTZp9oh0mAQWUYwBgY24qa4YhtuMACnRDyYQMdBgZ70y5/u56+veoWiIkRRt5Mbz4zjpjqTTbZpBKF2Ku7gbu31p0yAlExtC8njvSxZyHC45zkGgzuToZUPMgwemBUFy3yAZzznrU0t4oUA7cjjA6/pVSSQydIyB1y3HFMdxka5YMSDntipLyUxwSKCRx9Kpz6gITtEgbHAVB/U1nXF09y2WNcdXFQp6LVm0KMpavREeqqb+5Ql8Rou35f4qYiLGoVQFA7CnUV41SrKq7yPQhBQVkFFFFYmgUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFGcUUUCHrMwAHUVbtp8lsDAoor0sNUnKVmzkrQildIvRgE4xk8DPSqspNnq1tKoGJv3Ljv6g/59aKK9OexyxNlhwQSeaanUs3zY9aKK2JMu2McN1IGHIYkYXPHBx1pdZn+16/p8WTsihMgBHc8f0ooqH8PzNFuawJC+68ZpGIA3EE5+bHaiiqMytHE7qGeQ4Y5+X3q0lrEgO8M4GRyc0UUCM+611YiUhiPHGWOP5VkzXks4wznb12jgUUV4FerOUnFvQ9KnCKV0iGiiiuQ3CiiigAooooAKKKKACiiigAooooA/9k=" alt="Stephen Cichon" width="260" height="260">
+      <figcaption class="label">Negros Oriental, PH · Remote</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <div class="readout reveal">
+      <div><span class="label">Cost per lead</span><b>−54%</b><p>Home and garden supplier, January to April, even as monthly spend grew.</p></div>
+      <div><span class="label">Campaign leads</span><b>+275%</b><p>Flooring retailer's top campaign after a tracking fix and bid strategy change.</p></div>
+      <div><span class="label">Accounts at once</span><b>20</b><p>Client accounts managed in parallel across several agency engagements.</p></div>
+      <div><span class="label">Monthly spend</span><b>$10K+</b><p>Combined Google Ads and Meta budget managed across a multi-client portfolio.</p></div>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="n">01 / CASE STUDIES</span>How I helped clients grow</h2>
+        <p>Client names are withheld. Every figure comes from the live ad account or the report I delivered to the client.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter case studies">
+        <button class="on" data-f="all">All</button>
+        <button data-f="cost">Lower cost per lead</button>
+        <button data-f="tracking">Tracking fixes</button>
+        <button data-f="structure">Restructures</button>
+        <button data-f="budget">Budget strategy</button>
+      </div>
+
+      <div class="cases">
+
+        <!-- 01 -->
+        <article class="case reveal" data-cat="cost budget">
+          <div class="case-main">
+            <div class="case-top"><span class="idx">CASE 01</span><div class="tags"><span class="tag">Search</span><span class="tag">PMax</span><span class="tag">Reporting</span></div></div>
+            <h3>Halved the cost of a lead by finding where budget was leaking</h3>
+            <div class="sector">Home &amp; garden supplier · US · lead generation</div>
+            <p><b>The problem.</b> Six campaigns were all running out of budget daily, yet one of them was taking 42% of the account's ad views and producing almost nothing: four leads in seven months at $194 each.</p>
+            <p><b>What I did.</b> Cut that campaign's budget, added negative keywords for competitor names and wrong-intent searches, and moved money toward stronger campaigns, starting with branded search at $8.92 a lead. I also rebuilt the monthly report into a plain-English one-pager so the owner could see where every dollar went.</p>
+            <details>
+              <summary>Full breakdown</summary>
+              <ul>
+                <li>Segmented seven months of campaign data by month to find the weak spot instead of trimming budgets evenly.</li>
+                <li>Identified branded search as the cheapest lead source but capped at $5/day, and made the case to fund it.</li>
+                <li>Flagged that over half of all "leads" were phone-number taps, so the client didn't mistake them for connected calls.</li>
+                <li>Built a monthly budget table so the client could compare their own ad spend against the campaigns we ran.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="case-side">
+            <div class="metric"><div class="v">$18.10 <small>$39.05</small><span class="arrow">↓54%</span></div><p>Cost per lead, January vs April</p></div>
+            <div class="metric"><div class="v">16.0% <small>6.0%</small></div><p>Click-to-lead conversion rate over the same period</p></div>
+            <div class="metric"><div class="v">2.5×</div><p>Monthly leads, from 30 in January to 75 in October</p></div>
+            <div class="chart">
+              <svg viewBox="0 0 320 110" role="img" aria-label="Monthly leads January to July: 30, 18, 68, 101, 99, 75, 57">
+                <g fill="#2c3330">
+                  <rect x="8" y="76" width="30" height="24"/><rect x="52" y="86" width="30" height="14"/>
+                  <rect x="96" y="46" width="30" height="54"/><rect x="140" y="20" width="30" height="80" fill="#ff7a45"/>
+                  <rect x="184" y="21" width="30" height="79"/><rect x="228" y="40" width="30" height="60"/>
+                  <rect x="272" y="55" width="30" height="45"/>
+                </g>
+                <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#5d635f" text-anchor="middle">
+                  <text x="23" y="109">J</text><text x="67" y="109">F</text><text x="111" y="109">M</text><text x="155" y="109">A</text><text x="199" y="109">M</text><text x="243" y="109">J</text><text x="287" y="109">J</text>
+                  <text x="155" y="14" fill="#e7e5dd">101</text>
+                </g>
+              </svg>
+              <div class="cap">Leads per month, Jan–Jul</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="case reveal" data-cat="structure tracking cost budget">
+          <div class="case-main">
+            <div class="case-top"><span class="idx">CASE 02</span><div class="tags"><span class="tag">Search</span><span class="tag">GA4</span><span class="tag">Bidding</span></div></div>
+            <h3>Rebuilt a flooring account that was spending with zero leads to show for it</h3>
+            <div class="sector">Flooring retailer · US · showroom leads</div>
+            <p><b>The problem.</b> Four of five legacy campaigns had spent over $2,000 between them without recording a single lead. Calls and form fills weren't being counted properly, so bidding had nothing to learn from.</p>
+            <p><b>What I did.</b> Replaced the old structure with one campaign per service, fixed call and form conversion tracking, then switched bidding from Maximize Clicks to Maximize Conversions. Once the data proved which service worked, I wrote the budget recommendation the owner used to approve more spend.</p>
+            <details>
+              <summary>Full breakdown</summary>
+              <ul>
+                <li>Service-specific campaigns for tile, hardwood, carpet and luxury vinyl, each with tailored ad copy and keyword sets.</li>
+                <li>Diagnosed a mid-month traffic drop as a budget ceiling, not lost demand, by matching Google Ads against GA4.</li>
+                <li>Recommended a phased increase led by the best campaign, reviewed against cost per lead at each step.</li>
+                <li>Added 82 new keywords to cover laminate and vinyl searches the account was missing.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="case-side">
+            <div class="metric"><div class="v">15 <small>4</small><span class="arrow">↑275%</span></div><p>Leads from the top campaign, four weeks before vs four weeks after the changes</p></div>
+            <div class="metric"><div class="v">$42.68</div><p>Cost per lead on the best service, about 3× cheaper than the others</p></div>
+            <div class="metric"><div class="v">31</div><p>Tracked leads from the new structure on 36% less spend, where four of the five old campaigns recorded none</p></div>
+            <div class="chart">
+              <svg viewBox="0 0 320 90" role="img" aria-label="Top campaign leads: 4 before, 15 after">
+                <text x="0" y="22" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8d938e">BEFORE</text>
+                <rect x="62" y="12" width="52" height="14" fill="#2c3330"/>
+                <text x="122" y="23" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8d938e">4</text>
+                <text x="0" y="58" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8d938e">AFTER</text>
+                <rect x="62" y="48" width="196" height="14" fill="#ff7a45"/>
+                <text x="266" y="59" font-family="IBM Plex Mono, monospace" font-size="11" fill="#e7e5dd">15</text>
+              </svg>
+              <div class="cap">Leads per four-week window, top campaign</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="case reveal" data-cat="tracking budget">
+          <div class="case-main">
+            <div class="case-top"><span class="idx">CASE 03</span><div class="tags"><span class="tag">PMax</span><span class="tag">GA4</span><span class="tag">Budget</span></div></div>
+            <h3>Made a restaurant group's ad spend measurable, then pointed it at its biggest launch</h3>
+            <div class="sector">Multi-location restaurant group · US · $7K+/month</div>
+            <p><b>The problem.</b> The brand ran across five separate websites. Its online ordering platforms had no Google tracking at all, the main lead goal had no working conversion action, and an old Universal Analytics conversion that had stopped recording years earlier was still marked primary.</p>
+            <p><b>What I did.</b> Mapped every property, demoted the dead conversion, promoted the live form tracking, fixed a broken catering-quote event and set up new GA4 data streams for the ordering sites. Then I built the quarter's budget plan around the new loyalty app launch.</p>
+            <details>
+              <summary>Full breakdown</summary>
+              <ul>
+                <li>Found a private-events campaign costing $460 per conversion and proposed halving its budget.</li>
+                <li>Proposed a +19% budget increase weighted toward the loyalty app, catering and budget-limited locations.</li>
+                <li>Launched the loyalty Performance Max campaign and rolled its creative into seven asset groups.</li>
+                <li>Rewrote a location's full Performance Max copy when the client dropped its late-night messaging.</li>
+                <li>Reconciled year-to-date spend in the client's budget sheet against Google Ads for monthly and quarterly decks.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="case-side">
+            <div class="metric"><div class="v">0 → 1</div><p>Working primary conversion on the lead goal, so bidding could finally optimize for leads</p></div>
+            <div class="metric"><div class="v">$0.79</div><p>Average cost per click across 8,400+ monthly clicks and eight campaigns</p></div>
+            <div class="metric"><div class="v">5 of 8</div><p>Campaigns found capped by budget, used to justify where new money should go</p></div>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="case reveal" data-cat="tracking">
+          <div class="case-main">
+            <div class="case-top"><span class="idx">CASE 04</span><div class="tags"><span class="tag">B2B</span><span class="tag">GTM</span><span class="tag">GA4</span></div></div>
+            <h3>Caught a lead count that was 14× higher than reality</h3>
+            <div class="sector">Industrial manufacturer · international · B2B</div>
+            <p><b>The problem.</b> The quarterly report showed nearly 400 conversions. Digging into GA4, one event had fired 382 times from 117 users while the site's form inbox held about 26 real enquiries. Page views were also being counted twice on every load.</p>
+            <p><b>What I did.</b> Moved the inflated action to secondary, removed the duplicate page view in Tag Manager, and installed proper lead tracking that fires only on a successful form submission or a phone/email click. I added tracking-status slides to the quarterly deck so leadership could see exactly what the numbers meant.</p>
+            <details>
+              <summary>Full breakdown</summary>
+              <ul>
+                <li>Traced 255 of the inflated events to two foreign-language landing pages whose form received one submission all quarter.</li>
+                <li>Explained a low sessions-per-click ratio: the cookie banner blocked analytics until visitors accepted.</li>
+                <li>Found the site had no clickable phone or email links, so those conversions could never have fired.</li>
+                <li>Kept paid traffic efficient while tracking was rebuilt: 7,479 clicks at $0.17 CPC and a 4.82% CTR for the quarter.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="case-side">
+            <div class="metric"><div class="v">~26 <small>382</small></div><p>Real enquiries vs the event count the account had been reporting as leads</p></div>
+            <div class="metric"><div class="v">1×</div><p>Page views per load after the fix, down from two</p></div>
+            <div class="chart">
+              <svg viewBox="0 0 320 90" role="img" aria-label="Reported 382 lead events versus about 26 real enquiries">
+                <text x="0" y="22" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8d938e">REPORTED</text>
+                <rect x="76" y="12" width="200" height="14" fill="#2c3330"/>
+                <text x="284" y="23" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8d938e">382</text>
+                <text x="0" y="58" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8d938e">REAL</text>
+                <rect x="76" y="48" width="14" height="14" fill="#ff7a45"/>
+                <text x="98" y="59" font-family="IBM Plex Mono, monospace" font-size="11" fill="#e7e5dd">~26</text>
+              </svg>
+              <div class="cap">Lead events vs verified form submissions, one quarter</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 -->
+        <article class="case reveal" data-cat="budget cost structure">
+          <div class="case-main">
+            <div class="case-top"><span class="idx">CASE 05</span><div class="tags"><span class="tag">Search</span><span class="tag">PMax</span><span class="tag">Lead forms</span></div></div>
+            <h3>Shifted five local service businesses toward the campaigns that convert</h3>
+            <div class="sector">Home services portfolio · cleaning, sealing, flooring · US</div>
+            <p><b>The problem.</b> Across several small accounts, budget was split by habit rather than results. One business's Search campaign converted at 12.99% but was capped by budget, while its Performance Max ran unrestricted at 0.59%.</p>
+            <p><b>What I did.</b> Reweighted budgets toward Search where it was outperforming, tightened match types, restored Google lead forms that had been disapproved, and set cost-per-lead benchmarks so monthly reviews had a target to measure against.</p>
+            <details>
+              <summary>Full breakdown</summary>
+              <ul>
+                <li>Doubled a sealing company's Search budget during a lead slowdown, funded by trimming two softer campaigns.</li>
+                <li>Moved 24 of a rug cleaner's broad keywords to exact and phrase match, where almost none had been getting traffic.</li>
+                <li>Rewrote "Poor" ad-strength ads that were recycling the same few phrases.</li>
+                <li>Showed a flooring store that its competitor campaign drove 91 of its 108 monthly leads.</li>
+                <li>Fixed conversion counting so form and call actions record one per session instead of every repeat.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="case-side">
+            <div class="metric"><div class="v">84%</div><p>Share of one store's monthly leads traced to a single competitor-targeting campaign</p></div>
+            <div class="metric"><div class="v">$6 → $12</div><p>Daily Search budget for a sealing business, total spend held flat</p></div>
+            <div class="metric"><div class="v">$85–115</div><p>Cost-per-lead benchmark set for a cleaning client; October landed at $102.85</p></div>
+          </div>
+        </article>
+
+        <!-- 06 -->
+        <article class="case reveal" data-cat="tracking structure">
+          <div class="case-main">
+            <div class="case-top"><span class="idx">CASE 06</span><div class="tags"><span class="tag">Seasonal</span><span class="tag">GTM</span><span class="tag">Search</span></div></div>
+            <h3>Cleaned up double-counted leads, then rebuilt a seasonal account for fall</h3>
+            <div class="sector">Lawn &amp; outdoor services · US · seasonal</div>
+            <p><b>The problem.</b> The ad account reported far more leads than the client's back office. Two analytics conversions switched on months earlier were counting the same form fills and phone taps a second time.</p>
+            <p><b>What I did.</b> Set the duplicates to secondary without touching the primary tracking, so bidding kept running normally and the numbers lined up with real leads. For the fall season I rebuilt the account around four services.</p>
+            <details>
+              <summary>Full breakdown</summary>
+              <ul>
+                <li>Built three new Search ad groups, each with 90 keywords, 15 headlines and 4 descriptions.</li>
+                <li>Paused four off-season ad groups and added negatives to filter out mowing searches.</li>
+                <li>Refreshed Performance Max headlines, long headlines and descriptions to match the fall offer.</li>
+                <li>Flagged a strong performer that fell outside the brief so the client could decide whether to keep it.</li>
+              </ul>
+            </details>
+          </div>
+          <div class="case-side">
+            <div class="metric"><div class="v">2 → 0</div><p>Duplicate conversion actions inflating the lead count</p></div>
+            <div class="metric"><div class="v">270</div><p>New high-intent keywords across three seasonal services</p></div>
+            <div class="metric"><div class="v">106</div><p>Form leads in September, a count the account team reviewed and accepted as genuine</p></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="n">02 / APPROACH</span>How I work an account</h2>
+        <p>The same four steps, whether it's a $1,000 local account or a multi-location brand.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><span class="k">01</span><h4>Verify the tracking</h4><p>Before touching bids, I check that every conversion is real, counted once and tied to a lead the client would recognize.</p></div>
+        <div class="step"><span class="k">02</span><h4>Find the leak</h4><p>Break performance down by campaign and month to see which spend is working and which is just busy.</p></div>
+        <div class="step"><span class="k">03</span><h4>Restructure and reallocate</h4><p>One service per campaign, tighter keywords, and budget moved to the proven cost per lead.</p></div>
+        <div class="step"><span class="k">04</span><h4>Report it plainly</h4><p>Monthly and quarterly reports a business owner can read in two minutes, with the next steps spelled out.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="n">03 / SKILLS</span>Toolkit</h2>
+      </div>
+      <div class="skills reveal">
+        <div class="skill"><h4>Paid search</h4><p>Google Ads Search, Performance Max, Demand Gen, Display, lead form assets, bid strategy, budget pacing</p></div>
+        <div class="skill"><h4>Paid social</h4><p>Meta Ads (Facebook &amp; Instagram), LinkedIn Ads, retargeting, A/B testing, Conversions API</p></div>
+        <div class="skill"><h4>Tracking</h4><p>Google Tag Manager, GA4, conversion setup and audits, cross-domain measurement, Measurement Protocol</p></div>
+        <div class="skill"><h4>SEO</h4><p>Technical and local SEO, Search Console, schema, Google Business Profile, keyword research, Semrush</p></div>
+        <div class="skill"><h4>Reporting</h4><p>Looker Studio, AgencyAnalytics, Windsor.ai, executive decks, monthly OKR reviews</p></div>
+        <div class="skill"><h4>Web &amp; automation</h4><p>WordPress, landing page CRO, Klaviyo, Mailchimp, HubSpot, Zapier, ClickUp</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="n">04 / EXPERIENCE</span>Where I've worked</h2>
+      </div>
+      <div class="xp">
+        <div class="role reveal">
+          <div class="when">Dec 2025 – Jul 2026</div>
+          <div>
+            <h4>Digital Marketing Specialist</h4>
+            <div class="org">Medialife Pty Ltd · Australia (Remote)</div>
+            <ul>
+              <li>Ran Google Ads and Meta lead-generation campaigns for service promotions.</li>
+              <li>Built automated email follow-up sequences that improved lead-to-consultation conversion.</li>
+              <li>Set up GA4 funnel tracking and delivered weekly performance reports used to optimize ROI.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role reveal">
+          <div class="when">Jun 2019 – Aug 2025</div>
+          <div>
+            <h4>Digital Marketing Manager</h4>
+            <div class="org">KLB Solutions LLC · USA (Remote)</div>
+            <ul>
+              <li>Managed a multi-client portfolio with $10K+ combined monthly spend across Google Ads and Meta, meeting ROAS, CAC and lead-volume targets.</li>
+              <li>Ran paid search and paid social end to end: creative briefs, audience segmentation, A/B testing and bid adjustments.</li>
+              <li>Built GA4 and Looker Studio dashboards that turned campaign data into executive-ready client reports.</li>
+              <li>Lead strategic contact for clients on funnel expansion, landing page CRO and annual budget planning.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role reveal">
+          <div class="when">Feb 2024 – May 2025</div>
+          <div>
+            <h4>WordPress Developer (Contract)</h4>
+            <div class="org">Cornerstone Engineering, Inc. · Brentwood, TN · Imagemakers · Remote</div>
+            <ul>
+              <li>Senior WordPress development across two contracts: custom themes, plugins and site speed.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role reveal">
+          <div class="when">Jan 2014 – Apr 2019</div>
+          <div>
+            <h4>Digital Marketing Coordinator</h4>
+            <div class="org">Limchua Development Corporation · Cebu, Philippines</div>
+            <ul>
+              <li>Led market research and consumer analysis across expansion regions to guide brand positioning.</li>
+              <li>Managed and reconciled monthly marketing budgets for cost efficiency and local reach.</li>
+              <li>Ran localized promotions with cross-functional teams to grow regional market share.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="edu reveal">
+        <div>
+          <span class="label">Education</span>
+          <h4 style="margin-top:14px;font-weight:500">BS Information Technology</h4>
+          <p>Western Mindanao State University</p>
+        </div>
+        <div>
+          <span class="label">Certifications &amp; training</span>
+          <p style="margin-top:14px">Certificate in Leadership and Management (Level 4), CIT</p>
+          <p>Graphic Design, Draft Academy</p>
+          <p>Leadership Development &amp; Risk Assessment, Apple One Cebu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <span class="label">05 / CONTACT</span>
+      <h2 style="margin-top:20px">Need someone who checks the numbers first?</h2>
+      <div class="links">
+        <a href="mailto:stephensmcichon@gmail.com"><span class="label">Email</span><span>stephensmcichon@gmail.com</span></a>
+        <a href="https://linkedin.com/in/stephensmcichon" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span>in/stephensmcichon</span></a>
+        <a href="tel:+639611214870"><span class="label">Phone</span><span>+63 961 121 4870</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <span>Negros Oriental, Philippines · Remote worldwide</span>
+      <span>Client names withheld for confidentiality</span>
+    </footer>
+  </div>
+</main>
+
+<script>
+// case filters
+const btns=document.querySelectorAll('.filters button');
+const cards=document.querySelectorAll('.case');
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  const f=b.dataset.f;
+  cards.forEach(c=>c.classList.toggle('hide',f!=='all'&&!c.dataset.cat.split(' ').includes(f)));
+}));
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
