@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study 06 · Lawn & Outdoor Services · Stephen Cichon</title>
+<meta name="description" content="Removed double-counted leads without disrupting bidding, rebuilt the account for fall, and traced a billing surprise to its real source.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stephentfe.github.io/portfolio/case-06.html">
+<meta property="og:title" content="Case Study: Clean lead counts and a seasonal pivot">
+<meta property="og:description" content="Removed double-counted leads without disrupting bidding, rebuilt the account for fall, and traced a billing surprise to its real source.">
+<meta property="og:image" content="https://stephentfe.github.io/portfolio/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c0b;--panel:#111413;--line:#1f2422;--line-2:#2c3330;--text:#e7e5dd;--muted:#8d938e;--dim:#5d635f;--accent:#ff7a45;--good:#9fd8a8;--warn:#e8a87c;
+--mono:"IBM Plex Mono",ui-monospace,monospace;--sans:"IBM Plex Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,transparent 0%,var(--bg) 70%);z-index:-1}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.label{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:20;background:rgba(10,12,11,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:20px}
+.back{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.back:hover{color:var(--text)}
+.toc{display:flex;gap:22px}
+.toc a{font:400 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--text)}
+
+header.hero{padding:90px 0 56px;border-bottom:1px solid var(--line)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.tag{font:400 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);padding:3px 8px}
+h1{font-weight:300;font-size:clamp(34px,5vw,58px);line-height:1.06;letter-spacing:-.025em;max-width:20ch}
+h1 em{font-style:normal;color:var(--accent)}
+.sector{font:400 13px var(--mono);color:var(--accent);margin-top:18px}
+.lede{margin-top:24px;max-width:62ch;color:var(--muted);font-size:18px;font-weight:300}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.kpis div{padding:28px 24px;border-right:1px solid var(--line)}
+.kpis div:last-child{border-right:0}
+.kpis b{display:block;font:300 34px/1 var(--sans);letter-spacing:-.02em;margin:14px 0 10px}
+.kpis b small{font:400 13px var(--mono);color:var(--dim);text-decoration:line-through;margin-left:8px}
+.kpis p{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+h2{font-weight:300;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.12;margin-bottom:22px}
+h2 .n{font:500 12.5px var(--mono);color:var(--accent);display:block;margin-bottom:14px;letter-spacing:.1em}
+h3{font-weight:500;font-size:20px;margin:0 0 10px}
+p{color:var(--muted);max-width:68ch;margin-bottom:14px}
+p b,li b{color:var(--text);font-weight:500}
+.tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.tldr div{background:var(--panel);padding:24px}
+.tldr .k{font:500 12px var(--mono);color:var(--accent)}
+.tldr h4{font-weight:500;font-size:16.5px;margin:12px 0 8px}
+.tldr p{font-size:14.5px;margin:0}
+
+.steps{counter-reset:s;margin-top:34px;border-left:1px solid var(--line-2);margin-left:10px}
+.step{position:relative;padding:0 0 46px 38px}
+.step:last-child{padding-bottom:0}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:-17px;top:-2px;width:34px;height:34px;background:var(--bg);border:1px solid var(--accent);color:var(--accent);font:500 12px/32px var(--mono);text-align:center}
+.step .when{font:400 12px var(--mono);color:var(--dim);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px}
+.step ul{list-style:none;margin:10px 0 0}
+.step li{position:relative;padding-left:20px;color:var(--muted);font-size:15px;margin-bottom:8px;max-width:66ch}
+.step li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--accent)}
+
+.change{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);padding:18px 22px;margin:14px 0;max-width:620px}
+.change .from{font:300 26px var(--sans);color:var(--dim);text-decoration:line-through}
+.change .to{font:300 26px var(--sans)}
+.change .arr{color:var(--accent);font:500 18px var(--mono)}
+.change .cap{grid-column:1/-1;font:400 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{font:400 12.5px var(--mono);border:1px solid var(--line-2);padding:5px 10px;color:var(--text)}
+.chip i{font-style:normal;color:var(--dim);margin-left:6px;font-size:11px}
+
+.figure{background:var(--panel);border:1px solid var(--line);padding:26px 26px 18px;margin:26px 0}
+.figure .t{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.figure .cap{font:400 11.5px var(--mono);color:var(--dim);margin-top:12px}
+.figure svg{width:100%;height:auto;display:block}
+.cv{font:400 12px "IBM Plex Mono",monospace;fill:#e7e5dd}
+.cl{font:400 11.5px "IBM Plex Mono",monospace;fill:#8d938e}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.two .figure{margin:0}
+
+.callout{border:1px solid var(--accent);background:rgba(255,122,69,.06);padding:22px 24px;margin:26px 0;max-width:760px}
+.callout .label{color:var(--accent);margin-bottom:10px;display:block}
+.callout p{margin:0;color:var(--text)}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);margin:18px 0 8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:720px}
+th{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:12px 14px;border-bottom:1px solid var(--line-2);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:right;color:var(--muted);font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td b{color:var(--text);font-weight:500}
+tr.tot td{color:var(--text);border-top:1px solid var(--line-2);border-bottom:0}
+tr.hl td{color:var(--text);background:rgba(255,122,69,.07)}
+tr.warn td{color:var(--warn);background:rgba(232,168,124,.06)}
+.note{font:400 12px var(--mono);color:var(--dim)}
+
+.report-gate{text-align:left}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--line-2);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:none;color:var(--text);cursor:pointer;transition:all .2s}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#120804}
+.btn.primary:hover{background:#ff8f62}
+ul.notes{list-style:none;margin-top:12px}
+ul.notes li{position:relative;padding-left:20px;color:var(--muted);font-size:14.5px;margin-bottom:9px;max-width:72ch}
+ul.notes li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1px;background:var(--dim)}
+footer{padding:60px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer span{font:400 11.5px var(--mono);color:var(--dim)}
+
+@media (max-width:900px){.toc{display:none}.kpis{grid-template-columns:1fr 1fr}.kpis div:nth-child(2){border-right:0}.kpis div:nth-child(-n+2){border-bottom:1px solid var(--line)}.tldr,.two{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap{padding:0 20px}header.hero{padding:60px 0 40px}.kpis{grid-template-columns:1fr}.kpis div{border-right:0;border-bottom:1px solid var(--line)}.change{grid-template-columns:1fr auto 1fr}.step{padding-left:30px}}
+@media print{body{background:#fff;color:#111}body::before,.bar,.btn{display:none}.figure,.tldr div,.tbl{background:#fff}}
+
+.casenav{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:50px 0 0}
+.casenav a{display:block;border:1px solid var(--line);background:var(--panel);padding:20px 22px;text-decoration:none;transition:border-color .2s}
+.casenav a:hover{border-color:var(--line-2)}
+.casenav a span{display:block;font-size:15px;margin-top:8px;color:var(--text)}
+.casenav a.next{text-align:right}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.biz{background:var(--panel);border:1px solid var(--line);padding:24px}
+.biz .label{color:var(--accent)}
+.biz h4{font-weight:500;font-size:17px;margin:12px 0 8px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}.casenav{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="back" href="./#work">← All case studies</a>
+  <nav class="toc"><a href="#summary">Summary</a><a href="#problem">Problem</a><a href="#steps">What I did</a><a href="#results">Results</a><a href="#report">Full report</a></nav>
+</div></div>
+<main>
+<div class="wrap"><header class="hero">
+  <div class="tags"><span class="tag">Case 06</span><span class="tag">Google Ads</span><span class="tag">GA4</span><span class="tag">Conversion tracking</span><span class="tag">Seasonal</span><span class="tag">Search</span></div>
+  <h1>Clean lead counts and a <em>seasonal pivot</em></h1>
+  <div class="sector">Lawn & outdoor services · United States · seasonal · Jun–Oct 2026</div>
+  <p class="lede">A seasonal lawn and outdoor services company was seeing more leads in Google Ads than in its own records. I fixed the counting, rebuilt the account for the fall season, and answered a billing question that had the client worried.</p>
+</header></div>
+<div class="wrap"><div class="kpis"><div><span class="label">Duplicate lead actions</span><b>0<small>2</small></b><p>Analytics conversions counting the same leads twice.</p></div><div><span class="label">New keywords</span><b>270</b><p>90 each across three new fall service ad groups.</p></div><div><span class="label">Form leads, September</span><b>106</b><p>A count the account team reviewed and accepted.</p></div><div><span class="label">Billing overage explained</span><b>$1,386</b><p>Traced to a separate pay-per-lead product, not the campaigns.</p></div></div></div>
+<section id="summary"><div class="wrap"><h2><span class="n">01 / THE SHORT VERSION</span>Three things to know</h2><div class="tldr"><div><span class="k">01</span><h4>The ad account claimed more leads than the business had</h4><p>Duplicate Analytics conversions and a page-load "lead" were counting the same enquiries more than once.</p></div><div><span class="k">02</span><h4>I fixed the counting without disturbing bidding</h4><p>Duplicates went to secondary and the real form action to primary, so the numbers matched reality and campaigns kept running.</p></div><div><span class="k">03</span><h4>Then rebuilt the account for fall</h4><p>Three new service ad groups, four off-season groups paused, and Performance Max rewritten for the fall offer.</p></div></div></div></section><section id="problem"><div class="wrap"><h2><span class="n">02 / THE PROBLEM</span>Lead numbers nobody could trust</h2><p>A lawn and outdoor services company runs a seasonal business: mowing and fertilization in spring and summer, aeration, irrigation shut-off and holiday lighting in the fall. The ad account was reporting far more leads than the client's back office.</p><ul class="notes"><li><b>Two Analytics conversions switched on in April</b> (form submit and phone tap) were counting leads already captured by the website and call tracking.</li><li><b>In July, Google Ads showed 73 form leads against 65 in the back office.</b> The primary form action counted every submission rather than one per visit.</li><li><b>A "Submit lead form" action fired on page load</b>, so simply visiting the page could register as a lead.</li><li><b>The client was billed more than expected</b> in July and assumed the campaigns had overspent.</li></ul><div class="figure"><div class="t">Form leads, July: Google Ads vs back office</div><svg viewBox="0 0 960 90" role="img"><text x="0" y="23" class="cl" style="text-anchor:start">GOOGLE ADS</text><rect x="130" y="10" width="700.0" height="18" fill="#2c3330"/><text x="840.0" y="24" class="cv" style="text-anchor:start">73</text><text x="0" y="65" class="cl" style="text-anchor:start">BACK OFFICE</text><rect x="130" y="52" width="623.3" height="18" fill="#ff7a45"/><text x="763.3" y="66" class="cv" style="text-anchor:start">65</text></svg><div class="cap">Before the counting fixes</div></div></div></section><section id="steps"><div class="wrap"><h2><span class="n">03 / WHAT I DID</span>Step by step</h2><div class="steps"><div class="step"><span class="when">Step 1 · June</span><h3>Removed the double-counting conversions</h3><p>I set the two April Analytics conversions to secondary. They still record, but no longer add to the lead total. The original website form and call tracking stayed primary, so bidding carried on unchanged.</p><div class="change"><span class="from">2 duplicates</span><span class="arr">→</span><span class="to">0</span><span class="cap">Primary lead actions counting the same enquiry twice</span></div></div><div class="step"><span class="when">Step 2 · Reporting</span><h3>Pointed lead reporting to the back office</h3><p>While the counts were being cleaned up, I flagged that monthly report lead figures should come from the client's back office rather than Google Ads, so the report wouldn't overstate results.</p></div><div class="step"><span class="when">Step 3 · Fall pivot</span><h3>Rebuilt the account around four fall services</h3><ul class="notes"><li>Added negative keywords to filter out mowing searches in Search and Performance Max.</li><li>Paused four off-season ad groups: weed control, mosquito control, irrigation startup and lawn fertilization.</li><li>Built three new ad groups (overseeding & aeration, holiday lighting, irrigation winterization), each with 90 keywords, 15 headlines and 4 descriptions.</li><li>Rewrote Performance Max headlines, long headlines and descriptions to lead with the fall services.</li></ul><div class="chips"><span class="chip">overseeding & aeration<i>90 kw</i></span><span class="chip">holiday lighting<i>90 kw</i></span><span class="chip">irrigation winterization<i>90 kw</i></span></div></div><div class="step"><span class="when">Step 4 · Judgment call</span><h3>Flagged a strong performer that fell outside the brief</h3><p>Lawn fertilization wasn't one of the four requested fall services, but it was performing well. I paused it as briefed and flagged it straight away. The client chose to keep it, so I switched it back on, with the mowing negatives already protecting it from the jobs they didn't want.</p></div><div class="step"><span class="when">Step 5 · Billing</span><h3>Explained a billing surprise with the statement</h3><p>The July invoice was higher than the client expected. I checked the statement: the Search and Performance Max campaigns had billed <b>$809.73</b>, under the roughly $1,010 monthly budget. The overage was <b>Local Services Ads, $1,386.47 for 30 leads</b>, a separate pay-per-lead Google product. I recommended the client either cap it or turn it off.</p></div><div class="step"><span class="when">Step 6 · September–October</span><h3>Fixed the remaining counting issues</h3><ul class="notes"><li>Found why Ads showed 73 forms against 65: the primary action counted every submission, not one per visit.</li><li>Set the GA4 form-submit action to primary and the page-load "Submit lead form" action to secondary.</li><li>Checked September's 106 form leads and confirmed they were believable.</li></ul></div></div></div></section><section id="results"><div class="wrap"><h2><span class="n">04 / RESULTS</span>What changed</h2><div class="figure"><div class="t">July billing, by source</div><svg viewBox="0 0 960 74" role="img"><text x="0" y="22" class="cl" style="text-anchor:start">Search + PMax</text><rect x="190" y="9" width="397.1" height="18" fill="#2c3330"/><text x="595.1" y="22" class="cv" style="text-anchor:start">$809.73</text><text x="0" y="56" class="cl" style="text-anchor:start">Local Services Ads</text><rect x="190" y="43" width="680.0" height="18" fill="#ff7a45"/><text x="878.0" y="56" class="cv" style="text-anchor:start">$1,386.47</text></svg><div class="cap">Campaign spend was under its ~$1,010 budget. The overage came from a separate product.</div></div><div class="tldr"><div><span class="k">Accuracy</span><h4>Counts you can trust</h4><p>Duplicate and page-load actions removed from the lead total, with bidding untouched.</p></div><div><span class="k">Seasonality</span><h4>3 new fall ad groups</h4><p>270 keywords, with four off-season ad groups paused and mowing traffic filtered out.</p></div><div><span class="k">Trust</span><h4>Billing answered</h4><p>The client's overspend worry traced to its true source, with a clear next step.</p></div></div><div class="callout"><span class="label">Why I didn't just delete the duplicates</span><p>Setting them to secondary keeps their history and lets them be compared later, without letting them inflate leads or steer bidding.</p></div></div></section>
+<section id="report"><div class="wrap">
+  <h2><span class="n">05 / FULL REPORT</span>The data behind it</h2>
+  <p>Figures from the Google Ads account, the July billing statement and the monthly OKR reviews, June to October 2026. All figures in USD.</p>
+  <div class="report-gate"><button class="btn primary" id="openReport" aria-expanded="false" aria-controls="fullReport">View the full report ↓</button></div>
+  <div id="fullReport" hidden><h3 style="margin-top:40px">Conversion action changes</h3><div class="tbl"><table><thead><tr><th style="text-align:left">When</th><th style="text-align:left">Action</th><th style="text-align:right">Before</th><th style="text-align:right">After</th></tr></thead><tbody><tr class=""><td style="text-align:left">June</td><td style="text-align:left">GA4 form_submit (enabled Apr 21)</td><td style="text-align:right">Primary</td><td style="text-align:right">Secondary</td></tr><tr class=""><td style="text-align:left">June</td><td style="text-align:left">GA4 phone_number_click (enabled Apr 21)</td><td style="text-align:right">Primary</td><td style="text-align:right">Secondary</td></tr><tr class=""><td style="text-align:left">October</td><td style="text-align:left">GA4 form_submit</td><td style="text-align:right">Secondary</td><td style="text-align:right">Primary</td></tr><tr class=""><td style="text-align:left">October</td><td style="text-align:left">Page-load "Submit lead form"</td><td style="text-align:right">Primary</td><td style="text-align:right">Secondary</td></tr></tbody></table></div><h3 style="margin-top:40px">Fall restructure</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Ad group</th><th style="text-align:right">Status</th><th style="text-align:right">Keywords</th><th style="text-align:right">Headlines</th><th style="text-align:right">Descriptions</th></tr></thead><tbody><tr class="hl"><td style="text-align:left">Overseeding & Aeration</td><td style="text-align:right">New</td><td style="text-align:right">90</td><td style="text-align:right">15</td><td style="text-align:right">4</td></tr><tr class="hl"><td style="text-align:left">Holiday Lighting</td><td style="text-align:right">New</td><td style="text-align:right">90</td><td style="text-align:right">15</td><td style="text-align:right">4</td></tr><tr class="hl"><td style="text-align:left">Irrigation Winterization</td><td style="text-align:right">New</td><td style="text-align:right">90</td><td style="text-align:right">15</td><td style="text-align:right">4</td></tr><tr class=""><td style="text-align:left">Weed Control</td><td style="text-align:right">Paused</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr><tr class=""><td style="text-align:left">Mosquito Control</td><td style="text-align:right">Paused</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr><tr class=""><td style="text-align:left">Irrigation Startup</td><td style="text-align:right">Paused</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr><tr class=""><td style="text-align:left">Lawn Fertilization</td><td style="text-align:right">Paused, then re-enabled</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr></tbody></table></div><h3 style="margin-top:40px">July billing</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Source</th><th style="text-align:right">Amount</th><th style="text-align:left">Notes</th></tr></thead><tbody><tr class=""><td style="text-align:left">Search + Performance Max</td><td style="text-align:right">$809.73</td><td style="text-align:left">Under the ~$1,010/month budget</td></tr><tr class=""><td style="text-align:left">Local Services Ads</td><td style="text-align:right">$1,386.47</td><td style="text-align:left">30 leads, separate pay-per-lead product</td></tr><tr class="tot"><td style="text-align:left"><b>Total</b></td><td style="text-align:right"><b>$2,196.20</b></td><td style="text-align:left"></td></tr></tbody></table></div><h3 style="margin-top:40px">Lead count checks</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Month</th><th style="text-align:right">Google Ads</th><th style="text-align:right">Back office</th><th style="text-align:left">Outcome</th></tr></thead><tbody><tr class=""><td style="text-align:left">July</td><td style="text-align:right">73 forms</td><td style="text-align:right">65 forms</td><td style="text-align:left">Cause found: counted every submission</td></tr><tr class=""><td style="text-align:left">September</td><td style="text-align:right">106 forms</td><td style="text-align:right">—</td><td style="text-align:left">Reviewed and accepted</td></tr></tbody></table></div><h3 style="margin-top:40px">Notes on the numbers</h3><ul class="notes"><li>Lead totals in Google Ads read lower after the fixes. That reflects counting each lead once, not fewer enquiries.</li><li>Local Services Ads is billed by Google per lead and isn't managed in the Search or Performance Max campaigns.</li><li>Revenue isn't tracked in this account, so results are reported as leads.</li></ul></div>
+</div></section>
+<div class="wrap">
+  <div class="casenav"><a href="case-05.html"><span class="label">← Previous case</span><span>Home services: five accounts, one playbook</span></a><a class="next" href="./#contact"><span class="label">Get in touch →</span><span>Contact me</span></a></div>
+  <footer><a class="btn" href="./#work">← Back to all case studies</a><span>Client name withheld for confidentiality</span></footer>
+</div>
+</main>
+<script>
+const b=document.getElementById('openReport'),r=document.getElementById('fullReport');
+b.addEventListener('click',()=>{const open=r.hidden;r.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'Hide the full report ↑':'View the full report ↓';if(open)r.scrollIntoView({behavior:'smooth',block:'start'});});
+if(location.hash==='#full'){r.hidden=false;b.setAttribute('aria-expanded','true');b.textContent='Hide the full report ↑';}
+</script>
+</body>
+</html>

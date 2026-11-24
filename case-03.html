@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study 03 · Restaurant Group · Stephen Cichon</title>
+<meta name="description" content="Fixed broken conversion tracking across five websites, halved a $460-per-conversion campaign and funded a loyalty app launch inside the client's cap.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stephentfe.github.io/portfolio/case-03.html">
+<meta property="og:title" content="Case Study: Making a restaurant group's ad spend measurable">
+<meta property="og:description" content="Fixed broken conversion tracking across five websites, halved a $460-per-conversion campaign and funded a loyalty app launch inside the client's cap.">
+<meta property="og:image" content="https://stephentfe.github.io/portfolio/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c0b;--panel:#111413;--line:#1f2422;--line-2:#2c3330;--text:#e7e5dd;--muted:#8d938e;--dim:#5d635f;--accent:#ff7a45;--good:#9fd8a8;--warn:#e8a87c;
+--mono:"IBM Plex Mono",ui-monospace,monospace;--sans:"IBM Plex Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,transparent 0%,var(--bg) 70%);z-index:-1}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.label{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:20;background:rgba(10,12,11,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:20px}
+.back{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.back:hover{color:var(--text)}
+.toc{display:flex;gap:22px}
+.toc a{font:400 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--text)}
+
+header.hero{padding:90px 0 56px;border-bottom:1px solid var(--line)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.tag{font:400 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);padding:3px 8px}
+h1{font-weight:300;font-size:clamp(34px,5vw,58px);line-height:1.06;letter-spacing:-.025em;max-width:20ch}
+h1 em{font-style:normal;color:var(--accent)}
+.sector{font:400 13px var(--mono);color:var(--accent);margin-top:18px}
+.lede{margin-top:24px;max-width:62ch;color:var(--muted);font-size:18px;font-weight:300}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.kpis div{padding:28px 24px;border-right:1px solid var(--line)}
+.kpis div:last-child{border-right:0}
+.kpis b{display:block;font:300 34px/1 var(--sans);letter-spacing:-.02em;margin:14px 0 10px}
+.kpis b small{font:400 13px var(--mono);color:var(--dim);text-decoration:line-through;margin-left:8px}
+.kpis p{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+h2{font-weight:300;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.12;margin-bottom:22px}
+h2 .n{font:500 12.5px var(--mono);color:var(--accent);display:block;margin-bottom:14px;letter-spacing:.1em}
+h3{font-weight:500;font-size:20px;margin:0 0 10px}
+p{color:var(--muted);max-width:68ch;margin-bottom:14px}
+p b,li b{color:var(--text);font-weight:500}
+.tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.tldr div{background:var(--panel);padding:24px}
+.tldr .k{font:500 12px var(--mono);color:var(--accent)}
+.tldr h4{font-weight:500;font-size:16.5px;margin:12px 0 8px}
+.tldr p{font-size:14.5px;margin:0}
+
+.steps{counter-reset:s;margin-top:34px;border-left:1px solid var(--line-2);margin-left:10px}
+.step{position:relative;padding:0 0 46px 38px}
+.step:last-child{padding-bottom:0}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:-17px;top:-2px;width:34px;height:34px;background:var(--bg);border:1px solid var(--accent);color:var(--accent);font:500 12px/32px var(--mono);text-align:center}
+.step .when{font:400 12px var(--mono);color:var(--dim);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px}
+.step ul{list-style:none;margin:10px 0 0}
+.step li{position:relative;padding-left:20px;color:var(--muted);font-size:15px;margin-bottom:8px;max-width:66ch}
+.step li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--accent)}
+
+.change{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);padding:18px 22px;margin:14px 0;max-width:620px}
+.change .from{font:300 26px var(--sans);color:var(--dim);text-decoration:line-through}
+.change .to{font:300 26px var(--sans)}
+.change .arr{color:var(--accent);font:500 18px var(--mono)}
+.change .cap{grid-column:1/-1;font:400 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{font:400 12.5px var(--mono);border:1px solid var(--line-2);padding:5px 10px;color:var(--text)}
+.chip i{font-style:normal;color:var(--dim);margin-left:6px;font-size:11px}
+
+.figure{background:var(--panel);border:1px solid var(--line);padding:26px 26px 18px;margin:26px 0}
+.figure .t{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.figure .cap{font:400 11.5px var(--mono);color:var(--dim);margin-top:12px}
+.figure svg{width:100%;height:auto;display:block}
+.cv{font:400 12px "IBM Plex Mono",monospace;fill:#e7e5dd}
+.cl{font:400 11.5px "IBM Plex Mono",monospace;fill:#8d938e}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.two .figure{margin:0}
+
+.callout{border:1px solid var(--accent);background:rgba(255,122,69,.06);padding:22px 24px;margin:26px 0;max-width:760px}
+.callout .label{color:var(--accent);margin-bottom:10px;display:block}
+.callout p{margin:0;color:var(--text)}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);margin:18px 0 8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:720px}
+th{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:12px 14px;border-bottom:1px solid var(--line-2);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:right;color:var(--muted);font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td b{color:var(--text);font-weight:500}
+tr.tot td{color:var(--text);border-top:1px solid var(--line-2);border-bottom:0}
+tr.hl td{color:var(--text);background:rgba(255,122,69,.07)}
+tr.warn td{color:var(--warn);background:rgba(232,168,124,.06)}
+.note{font:400 12px var(--mono);color:var(--dim)}
+
+.report-gate{text-align:left}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--line-2);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:none;color:var(--text);cursor:pointer;transition:all .2s}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#120804}
+.btn.primary:hover{background:#ff8f62}
+ul.notes{list-style:none;margin-top:12px}
+ul.notes li{position:relative;padding-left:20px;color:var(--muted);font-size:14.5px;margin-bottom:9px;max-width:72ch}
+ul.notes li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1px;background:var(--dim)}
+footer{padding:60px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer span{font:400 11.5px var(--mono);color:var(--dim)}
+
+@media (max-width:900px){.toc{display:none}.kpis{grid-template-columns:1fr 1fr}.kpis div:nth-child(2){border-right:0}.kpis div:nth-child(-n+2){border-bottom:1px solid var(--line)}.tldr,.two{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap{padding:0 20px}header.hero{padding:60px 0 40px}.kpis{grid-template-columns:1fr}.kpis div{border-right:0;border-bottom:1px solid var(--line)}.change{grid-template-columns:1fr auto 1fr}.step{padding-left:30px}}
+@media print{body{background:#fff;color:#111}body::before,.bar,.btn{display:none}.figure,.tldr div,.tbl{background:#fff}}
+
+.casenav{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:50px 0 0}
+.casenav a{display:block;border:1px solid var(--line);background:var(--panel);padding:20px 22px;text-decoration:none;transition:border-color .2s}
+.casenav a:hover{border-color:var(--line-2)}
+.casenav a span{display:block;font-size:15px;margin-top:8px;color:var(--text)}
+.casenav a.next{text-align:right}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.biz{background:var(--panel);border:1px solid var(--line);padding:24px}
+.biz .label{color:var(--accent)}
+.biz h4{font-weight:500;font-size:17px;margin:12px 0 8px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}.casenav{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="back" href="./#work">← All case studies</a>
+  <nav class="toc"><a href="#summary">Summary</a><a href="#problem">Problem</a><a href="#steps">What I did</a><a href="#results">Results</a><a href="#report">Full report</a></nav>
+</div></div>
+<main>
+<div class="wrap"><header class="hero">
+  <div class="tags"><span class="tag">Case 03</span><span class="tag">Google Ads</span><span class="tag">Performance Max</span><span class="tag">GA4</span><span class="tag">Conversion tracking</span><span class="tag">Budget planning</span></div>
+  <h1>Making a restaurant group's ad spend <em>measurable</em></h1>
+  <div class="sector">Multi-location restaurant group · United States · $7K+/month · Aug–Oct 2026</div>
+  <p class="lede">A restaurant group with three locations, catering and online ordering was spending around $8,000 a month on Google Ads but couldn't see most of what it was buying. I fixed the tracking first, then moved money to the launch that mattered.</p>
+</header></div>
+<div class="wrap"><div class="kpis"><div><span class="label">Monthly ad spend</span><b>$7.7K</b><p>September, across eight campaigns and three locations.</p></div><div><span class="label">Lead goal actions</span><b>0 → 1</b><p>Working primary conversion on "Submit lead forms" after the fix.</p></div><div><span class="label">Wasteful campaign</span><b>$460.88</b><p>Cost per conversion on private-event search. Budget halved.</p></div><div><span class="label">Launch budget</span><b>+290%</b><p>Loyalty app campaign, $16.67 to $65/day, within the client's monthly cap.</p></div></div></div>
+<section id="summary"><div class="wrap"><h2><span class="n">01 / THE SHORT VERSION</span>Three things to know</h2><div class="tldr"><div><span class="k">01</span><h4>The spend couldn't be measured</h4><p>Five websites, ordering platforms with no Google tracking, and a lead goal with no working conversion action.</p></div><div><span class="k">02</span><h4>I mapped and fixed the tracking</h4><p>Demoted a dead conversion, promoted the live one, repaired a broken event and set up data streams for the ordering sites.</p></div><div><span class="k">03</span><h4>Then moved money to the launch</h4><p>Cut the worst campaign in half and quadrupled the loyalty app budget while staying inside the client's monthly cap.</p></div></div></div></section><section id="problem"><div class="wrap"><h2><span class="n">02 / THE PROBLEM</span>An $8K-a-month account that couldn't prove its results</h2><p>A multi-location restaurant group ran around eight campaigns across its locations, catering, delivery and private events. When I audited the tracking, I found the brand spread across <b>five separate websites</b>: the main site, a catering mirror, an online retail shop and two food-ordering platforms.</p><ul class="notes"><li><b>Both ordering platforms had no Google tracking at all.</b> Online food orders were invisible to the ad account.</li><li><b>The "Submit lead forms" goal had no working primary action.</b> A Universal Analytics conversion that had stopped recording in 2023 was still marked primary, while the live form tracking sat unused as secondary.</li><li><b>A catering-quote event had never fired</b> because stray characters had been saved into its page-path rule.</li><li><b>The Analytics property everyone reported on was the retail shop</b>, not the restaurants.</li><li><b>Five of eight campaigns were limited by budget</b>, while one campaign was spending $922 a month for 2 conversions.</li></ul><div class="figure"><div class="t">Cost per conversion by campaign, September</div><svg viewBox="0 0 960 278" role="img"><text x="0" y="22" class="cl" style="text-anchor:start">Leads PMax</text><rect x="190" y="9" width="1.0" height="18" fill="#2c3330"/><text x="198.6" y="22" class="cv" style="text-anchor:start">$0.38</text><text x="0" y="56" class="cl" style="text-anchor:start">Delivery (Display)</text><rect x="190" y="43" width="2.2" height="18" fill="#2c3330"/><text x="200.2" y="56" class="cv" style="text-anchor:start">$1.49</text><text x="0" y="90" class="cl" style="text-anchor:start">Location A PMax</text><rect x="190" y="77" width="4.0" height="18" fill="#2c3330"/><text x="202.0" y="90" class="cv" style="text-anchor:start">$2.74</text><text x="0" y="124" class="cl" style="text-anchor:start">Location B PMax</text><rect x="190" y="111" width="4.5" height="18" fill="#2c3330"/><text x="202.5" y="124" class="cv" style="text-anchor:start">$3.07</text><text x="0" y="158" class="cl" style="text-anchor:start">Location C PMax</text><rect x="190" y="145" width="5.3" height="18" fill="#2c3330"/><text x="203.3" y="158" class="cv" style="text-anchor:start">$3.58</text><text x="0" y="192" class="cl" style="text-anchor:start">Weekly promo PMax</text><rect x="190" y="179" width="12.0" height="18" fill="#2c3330"/><text x="210.0" y="192" class="cv" style="text-anchor:start">$8.15</text><text x="0" y="226" class="cl" style="text-anchor:start">Catering PMax</text><rect x="190" y="213" width="17.2" height="18" fill="#2c3330"/><text x="215.2" y="226" class="cv" style="text-anchor:start">$11.68</text><text x="0" y="260" class="cl" style="text-anchor:start">Weddings &amp; Events Search</text><rect x="190" y="247" width="680.0" height="18" fill="#ff7a45"/><text x="878.0" y="260" class="cv" style="text-anchor:start">$460.88</text></svg><div class="cap">Weddings & Events Search cost $460.88 per conversion. Most others were under $12.</div></div></div></section><section id="steps"><div class="wrap"><h2><span class="n">03 / WHAT I DID</span>Step by step</h2><div class="steps"><div class="step"><span class="when">Step 1 · Tracking audit</span><h3>Mapped every website and what it measured</h3><p>I traced each domain to its Analytics property and data stream. That showed the property used in reports was the retail shop, and that the restaurant ordering flows had no tracking.</p></div><div class="step"><span class="when">Step 2 · Conversion fixes</span><h3>Made the lead goal work again</h3><ul class="notes"><li><b>Dead conversion demoted:</b> the old Universal Analytics catering form moved from primary to secondary.</li><li><b>Live form tracking promoted:</b> the working GA4 form_submit (19 conversions in two weeks) moved to primary, so "Submit lead forms" went from 0 primary actions to 1.</li><li><b>Broken event repaired:</b> fixed the catering-quote page path so the event can fire.</li><li><b>Add to cart marked as a key event</b> on the retail shop.</li><li><b>Two new GA4 data streams</b> created for the ordering platforms, with the tag install handed to the platform owners.</li></ul></div><div class="step"><span class="when">Step 3 · Waste</span><h3>Halved the private-events budget</h3><p>Private-event search spent $921.77 in September for 2 conversions. Its top search terms were competitor venues and caterers. I halved its budget and split it into three tighter ad groups (wedding catering, rehearsals and showers, private events) using exact and phrase match only.</p><div class="change"><span class="from">$30/day</span><span class="arr">→</span><span class="to">$15/day</span><span class="cap">Weddings & Events Search · $460.88 per conversion in September</span></div></div><div class="step"><span class="when">Step 4 · Launch</span><h3>Launched the loyalty app campaign across every location</h3><p>When the client launched a loyalty rewards app, I built a dedicated Performance Max campaign and added a loyalty asset group to all six other Performance Max campaigns, so every location promoted the app.</p><ul class="notes"><li>15 headlines, 5 long headlines, 5 descriptions and 20 search themes, written from the client's spec sheet.</li><li>Resized the client's square graphic to 1200×628 for landscape placements without redrawing it.</li><li>Paused a late-night campaign and rewrote a location's entire asset group the same day the client dropped that offer.</li></ul></div><div class="step"><span class="when">Step 5 · Budget plan</span><h3>Funded the launch inside the client's monthly cap</h3><p>My first proposal added $1,684 a month (+19%). The client capped the increase at $400 on a $8,406 plan, so I reworked it: fund the loyalty app by cutting the weakest campaign and leave everything else unchanged.</p><div class="change"><span class="from">$16.67/day</span><span class="arr">→</span><span class="to">$65/day</span><span class="cap">Loyalty app PMax · Google's own recommendation was $63.32/day</span></div><p>The catch was a promo campaign that only runs on Tuesdays. A simple 30.4-day calculation overstated it by about $1,000 a month. Modelling it by Tuesdays showed the plan landing at <b>$8,678 to $8,773 a month</b> against the $8,806 cap, with the tightest month flagged in advance.</p></div><div class="step"><span class="when">Step 6 · Promotions</span><h3>Pushed the weekly price-point promo to every location</h3><p>I copied the promo asset group into all three location campaigns, swapped in the new third-party graphics, removed two YouTube videos that had gone private and were blocking saves, and added two new catering videos to an asset group that had none.</p></div></div></div></section><section id="results"><div class="wrap"><h2><span class="n">04 / RESULTS</span>What changed</h2><div class="figure"><div class="t">Daily budget, before vs after</div><svg viewBox="0 0 960 142" role="img"><text x="0" y="22" class="cl" style="text-anchor:start">Loyalty before</text><rect x="150" y="9" width="184.7" height="18" fill="#2c3330"/><text x="342.7" y="22" class="cv" style="text-anchor:start">$16.67/day</text><text x="0" y="56" class="cl" style="text-anchor:start">Loyalty after</text><rect x="150" y="43" width="720.0" height="18" fill="#ff7a45"/><text x="878.0" y="56" class="cv" style="text-anchor:start">$65.00/day</text><text x="0" y="90" class="cl" style="text-anchor:start">Weddings before</text><rect x="150" y="77" width="332.3" height="18" fill="#2c3330"/><text x="490.3" y="90" class="cv" style="text-anchor:start">$30.00/day</text><text x="0" y="124" class="cl" style="text-anchor:start">Weddings after</text><rect x="150" y="111" width="166.2" height="18" fill="#ff7a45"/><text x="324.2" y="124" class="cv" style="text-anchor:start">$15.00/day</text></svg><div class="cap">All other campaigns unchanged.</div></div><div class="tldr"><div><span class="k">Measurement</span><h4>Lead goal working</h4><p>From 0 primary actions to 1 live, firing action, so bidding can optimize for leads.</p></div><div><span class="k">Efficiency</span><h4>$0.79 CPC</h4><p>Across 8,438 clicks and 243,564 impressions in August, CTR 3.46%.</p></div><div><span class="k">Budget</span><h4>Inside the cap</h4><p>Loyalty funded at Google's recommended level with the monthly plan under $8,806.</p></div></div><div class="callout"><span class="label">The trade-off I flagged</span><p>Two private-event conversions came from competitor-name searches, so the client chose to keep those terms rather than block them. I recorded the decision and set a review of the new ad groups' search terms after their first week.</p></div></div></section>
+<section id="report"><div class="wrap">
+  <h2><span class="n">05 / FULL REPORT</span>The data behind it</h2>
+  <p>Figures from the account, the September baseline and the October budget change I applied, pulled from Google Ads. All figures in USD.</p>
+  <div class="report-gate"><button class="btn primary" id="openReport" aria-expanded="false" aria-controls="fullReport">View the full report ↓</button></div>
+  <div id="fullReport" hidden><h3 style="margin-top:40px">September baseline by campaign</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Campaign</th><th style="text-align:right">Daily budget</th><th style="text-align:right">Cost</th><th style="text-align:right">Conversions</th><th style="text-align:right">Cost / conv.</th><th style="text-align:right">Limited by budget</th></tr></thead><tbody><tr class=""><td style="text-align:left"><b>Leads PMax</b></td><td style="text-align:right">$28.83</td><td style="text-align:right">$871.58</td><td style="text-align:right">2,303.85</td><td style="text-align:right">$0.38</td><td style="text-align:right">no</td></tr><tr class=""><td style="text-align:left"><b>Catering PMax</b></td><td style="text-align:right">$25.00</td><td style="text-align:right">$681.01</td><td style="text-align:right">58.29</td><td style="text-align:right">$11.68</td><td style="text-align:right">yes</td></tr><tr class=""><td style="text-align:left"><b>Location A PMax</b></td><td style="text-align:right">$58.90</td><td style="text-align:right">$1,791.41</td><td style="text-align:right">653.27</td><td style="text-align:right">$2.74</td><td style="text-align:right">no</td></tr><tr class=""><td style="text-align:left"><b>Location B PMax</b></td><td style="text-align:right">$32.47</td><td style="text-align:right">$987.82</td><td style="text-align:right">321.71</td><td style="text-align:right">$3.07</td><td style="text-align:right">yes</td></tr><tr class=""><td style="text-align:left"><b>Delivery (Display)</b></td><td style="text-align:right">$15.48</td><td style="text-align:right">$470.84</td><td style="text-align:right">316.53</td><td style="text-align:right">$1.49</td><td style="text-align:right">yes</td></tr><tr class=""><td style="text-align:left"><b>Location C PMax</b></td><td style="text-align:right">$32.27</td><td style="text-align:right">$981.31</td><td style="text-align:right">274.00</td><td style="text-align:right">$3.58</td><td style="text-align:right">no</td></tr><tr class="warn"><td style="text-align:left"><b>Weddings & Events Search</b></td><td style="text-align:right">$30.00</td><td style="text-align:right">$921.77</td><td style="text-align:right">2.00</td><td style="text-align:right">$460.88</td><td style="text-align:right">no</td></tr><tr class=""><td style="text-align:left"><b>Weekly promo PMax</b></td><td style="text-align:right">$47.50</td><td style="text-align:right">$478.12</td><td style="text-align:right">58.66</td><td style="text-align:right">$8.15</td><td style="text-align:right">yes</td></tr><tr class="tot"><td style="text-align:left"><b>Total</b></td><td style="text-align:right"><b>$270.45</b></td><td style="text-align:right"><b>$7,183.86</b></td><td style="text-align:right"></td><td style="text-align:right"></td><td style="text-align:right"></td></tr></tbody></table></div><p class="note">Plus $504.97 on a late-night search campaign paused in October. Campaign names generalized.</p><h3 style="margin-top:40px">Budget changes applied (October)</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Campaign</th><th style="text-align:right">Before</th><th style="text-align:right">After</th></tr></thead><tbody><tr class=""><td style="text-align:left">Loyalty app PMax</td><td style="text-align:right">$16.67</td><td style="text-align:right">$65.00</td></tr><tr class=""><td style="text-align:left">Weddings & Events Search</td><td style="text-align:right">$30.00</td><td style="text-align:right">$15.00</td></tr><tr class=""><td style="text-align:left">All other campaigns</td><td style="text-align:right">unchanged</td><td style="text-align:right">unchanged</td></tr><tr class="tot"><td style="text-align:left"><b>Account total</b></td><td style="text-align:right"></td><td style="text-align:right"><b>$320.45/day</b></td></tr></tbody></table></div><h3 style="margin-top:40px">Budget plan vs client cap</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Scenario</th><th style="text-align:right">Monthly</th></tr></thead><tbody><tr class=""><td style="text-align:left">Original plan</td><td style="text-align:right">$8,406</td></tr><tr class=""><td style="text-align:left">Client cap (+$400)</td><td style="text-align:right">$8,806</td></tr><tr class=""><td style="text-align:left">First proposal (+19%)</td><td style="text-align:right">$10,412</td></tr><tr class="hl"><td style="text-align:left">Final, four-Tuesday month</td><td style="text-align:right">$8,678</td></tr><tr class="hl"><td style="text-align:left">Final, five-Tuesday month</td><td style="text-align:right">$8,773</td></tr></tbody></table></div><h3 style="margin-top:40px">August account snapshot</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Metric</th><th style="text-align:right">Value</th></tr></thead><tbody><tr class=""><td style="text-align:left">Spend</td><td style="text-align:right">$6,696.55</td></tr><tr class=""><td style="text-align:left">Clicks</td><td style="text-align:right">8,438</td></tr><tr class=""><td style="text-align:left">Impressions</td><td style="text-align:right">243,564</td></tr><tr class=""><td style="text-align:left">Avg. CPC</td><td style="text-align:right">$0.79</td></tr><tr class=""><td style="text-align:left">CTR</td><td style="text-align:right">3.46%</td></tr><tr class=""><td style="text-align:left">Daily budget</td><td style="text-align:right">$262.12</td></tr></tbody></table></div><h3 style="margin-top:40px">Conversion action changes</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Action</th><th style="text-align:left">Before</th><th style="text-align:left">After</th></tr></thead><tbody><tr class=""><td style="text-align:left">Old Universal Analytics catering form</td><td style="text-align:left">Primary (not recording since 2023)</td><td style="text-align:left">Secondary</td></tr><tr class=""><td style="text-align:left">GA4 form_submit</td><td style="text-align:left">Secondary (19 conv. / 2 weeks)</td><td style="text-align:left">Primary</td></tr><tr class=""><td style="text-align:left">Catering quote event</td><td style="text-align:left">Never fired (broken rule)</td><td style="text-align:left">Rule fixed</td></tr><tr class=""><td style="text-align:left">Add to cart (retail shop)</td><td style="text-align:left">Not a key event</td><td style="text-align:left">Key event</td></tr></tbody></table></div><h3 style="margin-top:40px">New private-event ad groups</h3><div class="tbl"><table><thead><tr><th style="text-align:left">Ad group</th><th style="text-align:right">Keywords</th><th style="text-align:right">Match types</th></tr></thead><tbody><tr class=""><td style="text-align:left">Wedding Catering</td><td style="text-align:right">23</td><td style="text-align:right">12 exact, 11 phrase</td></tr><tr class=""><td style="text-align:left">Rehearsal & Showers</td><td style="text-align:right">24</td><td style="text-align:right">12 exact, 12 phrase</td></tr><tr class=""><td style="text-align:left">Private Events</td><td style="text-align:right">26</td><td style="text-align:right">13 exact, 13 phrase</td></tr></tbody></table></div><h3 style="margin-top:40px">Notes on the numbers</h3><ul class="notes"><li>The Leads PMax conversion count is mostly Google-hosted local actions such as directions and contacts, not form leads.</li><li>The loyalty campaign has no app-install or sign-up conversion yet, so its results are reported as clicks and site actions.</li><li>Retail shop orders were tracked (52 purchases, $6,755 in 28 days), but restaurant food orders were not, pending tag installs on the ordering platforms.</li><li>Campaign and location names are generalized to keep the client confidential.</li></ul></div>
+</div></section>
+<div class="wrap">
+  <div class="casenav"><a href="case-02.html"><span class="label">← Previous case</span><span>Flooring retailer: rebuilding an account with zero leads</span></a><a class="next" href="case-04.html"><span class="label">Next case →</span><span>Industrial manufacturer: a lead count 14x too high</span></a></div>
+  <footer><a class="btn" href="./#work">← Back to all case studies</a><span>Client name withheld for confidentiality</span></footer>
+</div>
+</main>
+<script>
+const b=document.getElementById('openReport'),r=document.getElementById('fullReport');
+b.addEventListener('click',()=>{const open=r.hidden;r.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'Hide the full report ↑':'View the full report ↓';if(open)r.scrollIntoView({behavior:'smooth',block:'start'});});
+if(location.hash==='#full'){r.hidden=false;b.setAttribute('aria-expanded','true');b.textContent='Hide the full report ↑';}
+</script>
+</body>
+</html>
