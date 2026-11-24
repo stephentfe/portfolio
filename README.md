@@ -15,15 +15,13 @@ Google Ads, Meta Ads, GA4 and GTM specialist. This site holds my resume and six 
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The full site, no build step |
+| `index.html` | The full site, photo included, no build step |
 | `Resume_Stephen_Cichon_2026.pdf` | Downloadable resume |
-| `photo.jpg` | Profile photo |
-| `.nojekyll` | Tells GitHub Pages to serve the files as-is |
 
 ## Publish on GitHub Pages
 
 1. Create a public repository (for example `portfolio`, or `<your-username>.github.io` for a root URL).
-2. Upload `index.html`, `Resume_Stephen_Cichon_2026.pdf`, `photo.jpg`, `.nojekyll` and this README.
+2. Upload `index.html`, `Resume_Stephen_Cichon_2026.pdf` and this README.
 3. Go to **Settings → Pages**, set Source to **Deploy from a branch**, branch `main`, folder `/ (root)`, then save.
 4. The site goes live at the URL above within a minute or two.
 
