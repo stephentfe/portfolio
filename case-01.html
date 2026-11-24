@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study 01 · Home &amp; Garden Supplier · Stephen Cichon</title>
+<meta name="description" content="How I found a campaign using 42% of ad views for 4 leads, moved budget to what converts, and brought cost per lead from $39 to $18.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stephentfe.github.io/portfolio/case-01.html">
+<meta property="og:title" content="Case Study: Finding the budget leak in a home &amp; garden ad account">
+<meta property="og:description" content="Full breakdown of budgets, campaign changes and results for a US home and garden supplier on Google Ads.">
+<meta property="og:image" content="https://stephentfe.github.io/portfolio/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c0b;--panel:#111413;--line:#1f2422;--line-2:#2c3330;--text:#e7e5dd;--muted:#8d938e;--dim:#5d635f;--accent:#ff7a45;--good:#9fd8a8;--warn:#e8a87c;
+--mono:"IBM Plex Mono",ui-monospace,monospace;--sans:"IBM Plex Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,transparent 0%,var(--bg) 70%);z-index:-1}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.label{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:20;background:rgba(10,12,11,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:20px}
+.back{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.back:hover{color:var(--text)}
+.toc{display:flex;gap:22px}
+.toc a{font:400 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--text)}
+
+header.hero{padding:90px 0 56px;border-bottom:1px solid var(--line)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.tag{font:400 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);padding:3px 8px}
+h1{font-weight:300;font-size:clamp(34px,5vw,58px);line-height:1.06;letter-spacing:-.025em;max-width:20ch}
+h1 em{font-style:normal;color:var(--accent)}
+.sector{font:400 13px var(--mono);color:var(--accent);margin-top:18px}
+.lede{margin-top:24px;max-width:62ch;color:var(--muted);font-size:18px;font-weight:300}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.kpis div{padding:28px 24px;border-right:1px solid var(--line)}
+.kpis div:last-child{border-right:0}
+.kpis b{display:block;font:300 34px/1 var(--sans);letter-spacing:-.02em;margin:14px 0 10px}
+.kpis b small{font:400 13px var(--mono);color:var(--dim);text-decoration:line-through;margin-left:8px}
+.kpis p{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+h2{font-weight:300;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.12;margin-bottom:22px}
+h2 .n{font:500 12.5px var(--mono);color:var(--accent);display:block;margin-bottom:14px;letter-spacing:.1em}
+h3{font-weight:500;font-size:20px;margin:0 0 10px}
+p{color:var(--muted);max-width:68ch;margin-bottom:14px}
+p b,li b{color:var(--text);font-weight:500}
+.tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.tldr div{background:var(--panel);padding:24px}
+.tldr .k{font:500 12px var(--mono);color:var(--accent)}
+.tldr h4{font-weight:500;font-size:16.5px;margin:12px 0 8px}
+.tldr p{font-size:14.5px;margin:0}
+
+.steps{counter-reset:s;margin-top:34px;border-left:1px solid var(--line-2);margin-left:10px}
+.step{position:relative;padding:0 0 46px 38px}
+.step:last-child{padding-bottom:0}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:-17px;top:-2px;width:34px;height:34px;background:var(--bg);border:1px solid var(--accent);color:var(--accent);font:500 12px/32px var(--mono);text-align:center}
+.step .when{font:400 12px var(--mono);color:var(--dim);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px}
+.step ul{list-style:none;margin:10px 0 0}
+.step li{position:relative;padding-left:20px;color:var(--muted);font-size:15px;margin-bottom:8px;max-width:66ch}
+.step li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:var(--accent)}
+
+.change{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);padding:18px 22px;margin:14px 0;max-width:620px}
+.change .from{font:300 26px var(--sans);color:var(--dim);text-decoration:line-through}
+.change .to{font:300 26px var(--sans)}
+.change .arr{color:var(--accent);font:500 18px var(--mono)}
+.change .cap{grid-column:1/-1;font:400 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{font:400 12.5px var(--mono);border:1px solid var(--line-2);padding:5px 10px;color:var(--text)}
+.chip i{font-style:normal;color:var(--dim);margin-left:6px;font-size:11px}
+
+.figure{background:var(--panel);border:1px solid var(--line);padding:26px 26px 18px;margin:26px 0}
+.figure .t{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.figure .cap{font:400 11.5px var(--mono);color:var(--dim);margin-top:12px}
+.figure svg{width:100%;height:auto;display:block}
+.cv{font:400 12px "IBM Plex Mono",monospace;fill:#e7e5dd}
+.cl{font:400 11.5px "IBM Plex Mono",monospace;fill:#8d938e}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.two .figure{margin:0}
+
+.callout{border:1px solid var(--accent);background:rgba(255,122,69,.06);padding:22px 24px;margin:26px 0;max-width:760px}
+.callout .label{color:var(--accent);margin-bottom:10px;display:block}
+.callout p{margin:0;color:var(--text)}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);margin:18px 0 8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:720px}
+th{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:12px 14px;border-bottom:1px solid var(--line-2);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:right;color:var(--muted);font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td b{color:var(--text);font-weight:500}
+tr.tot td{color:var(--text);border-top:1px solid var(--line-2);border-bottom:0}
+tr.hl td{color:var(--text);background:rgba(255,122,69,.07)}
+tr.warn td{color:var(--warn);background:rgba(232,168,124,.06)}
+.note{font:400 12px var(--mono);color:var(--dim)}
+
+.report-gate{text-align:left}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--line-2);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:none;color:var(--text);cursor:pointer;transition:all .2s}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#120804}
+.btn.primary:hover{background:#ff8f62}
+ul.notes{list-style:none;margin-top:12px}
+ul.notes li{position:relative;padding-left:20px;color:var(--muted);font-size:14.5px;margin-bottom:9px;max-width:72ch}
+ul.notes li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1px;background:var(--dim)}
+footer{padding:60px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer span{font:400 11.5px var(--mono);color:var(--dim)}
+
+@media (max-width:900px){.toc{display:none}.kpis{grid-template-columns:1fr 1fr}.kpis div:nth-child(2){border-right:0}.kpis div:nth-child(-n+2){border-bottom:1px solid var(--line)}.tldr,.two{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap{padding:0 20px}header.hero{padding:60px 0 40px}.kpis{grid-template-columns:1fr}.kpis div{border-right:0;border-bottom:1px solid var(--line)}.change{grid-template-columns:1fr auto 1fr}.step{padding-left:30px}}
+@media print{body{background:#fff;color:#111}body::before,.bar,.btn{display:none}.figure,.tldr div,.tbl{background:#fff}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="back" href="./#work">← All case studies</a>
+    <nav class="toc">
+      <a href="#summary">Summary</a>
+      <a href="#problem">Problem</a>
+      <a href="#steps">What I did</a>
+      <a href="#results">Results</a>
+      <a href="#report">Full report</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+  <header class="hero">
+    <div class="tags"><span class="tag">Case 01</span><span class="tag">Google Ads</span><span class="tag">Search</span><span class="tag">Performance Max</span><span class="tag">Budget strategy</span><span class="tag">Reporting</span></div>
+    <h1>Finding the <em>budget leak</em> in a home &amp; garden ad account</h1>
+    <div class="sector">Home &amp; garden supplier · United States · lead generation · Jan–Oct 2026</div>
+    <p class="lede">A supplier of stone veneer, hardscape and landscaping services was spending around $1,800 a month on Google Ads. Most campaigns were profitable, but one was quietly eating the account's visibility. This is how I found it, what I changed, and what the numbers did.</p>
+  </header>
+</div>
+
+<div class="wrap">
+  <div class="kpis">
+    <div><span class="label">Cost per lead</span><b>$18.10<small>$39.05</small></b><p>April vs January. Lowest month of the year.</p></div>
+    <div><span class="label">Conversion rate</span><b>16.0%<small>6.0%</small></b><p>Share of clicks that became a lead, April vs January.</p></div>
+    <div><span class="label">Leads, Jan–Jul</span><b>448</b><p>At an average of $24.66 per lead on $11,045 of spend.</p></div>
+    <div><span class="label">Ad spend managed</span><b>$16,992</b><p>January to October, across six active campaigns.</p></div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="wrap">
+    <h2><span class="n">01 / THE SHORT VERSION</span>Three things to know</h2>
+    <div class="tldr">
+      <div><span class="k">01</span><h4>The account worked, but money sat in the wrong place</h4><p>Five of six campaigns ran out of budget every day while one campaign took 42% of all ad views and produced 4 leads in seven months.</p></div>
+      <div><span class="k">02</span><h4>Budget moved to what converts</h4><p>I cut the weak campaign's budget in half, blocked wrong-intent searches and moved the money to campaigns converting at 11% to 17%.</p></div>
+      <div><span class="k">03</span><h4>The owner could finally read the report</h4><p>I rebuilt the monthly report into one plain-English page: what's working, what isn't, and what happens next.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="wrap">
+    <h2><span class="n">02 / THE PROBLEM</span>Cheap clicks that never became customers</h2>
+    <p>When I broke seven months of data down by campaign, the <b>Maintenance</b> campaign stood out. It had the cheapest clicks in the account at <b>$1.09</b>, so on a normal dashboard it looked efficient. It was also showing up for <b>42% of every ad impression</b> in the account.</p>
+    <p>But it produced <b>4 leads from 709 clicks</b>, a conversion rate of 0.56%. That works out to <b>$193.77 per lead</b>, against $8.92 for branded search and $16.23 for Performance Max.</p>
+
+    <div class="two">
+      <div class="figure"><div class="t">Share of all ad views</div><svg viewBox="0 0 420 198" role="img"><text x="0" y="22" class="cl" style="text-anchor:start">Maintenance</text><rect x="104" y="9" width="260.0" height="18" fill="#ff7a45"/><text x="372.0" y="22" class="cv" style="text-anchor:start">42%</text><text x="0" y="54" class="cl" style="text-anchor:start">Hardscape</text><rect x="104" y="41" width="127.2" height="18" fill="#2c3330"/><text x="239.2" y="54" class="cv" style="text-anchor:start">20%</text><text x="0" y="86" class="cl" style="text-anchor:start">Design</text><rect x="104" y="73" width="107.1" height="18" fill="#2c3330"/><text x="219.1" y="86" class="cv" style="text-anchor:start">17%</text><text x="0" y="118" class="cl" style="text-anchor:start">Veneer</text><rect x="104" y="105" width="68.4" height="18" fill="#2c3330"/><text x="180.4" y="118" class="cv" style="text-anchor:start">11%</text><text x="0" y="150" class="cl" style="text-anchor:start">Landscape</text><rect x="104" y="137" width="39.2" height="18" fill="#2c3330"/><text x="151.2" y="150" class="cv" style="text-anchor:start">6%</text><text x="0" y="182" class="cl" style="text-anchor:start">Branded</text><rect x="104" y="169" width="22.7" height="18" fill="#2c3330"/><text x="134.7" y="182" class="cv" style="text-anchor:start">4%</text></svg><div class="cap">Impressions by campaign, Jan–Jul</div></div>
+      <div class="figure"><div class="t">Cost per click</div><svg viewBox="0 0 420 198" role="img"><text x="0" y="22" class="cl" style="text-anchor:start">Maintenance</text><rect x="104" y="9" width="64.5" height="18" fill="#ff7a45"/><text x="176.5" y="22" class="cv" style="text-anchor:start">$1.09</text><text x="0" y="54" class="cl" style="text-anchor:start">Branded</text><rect x="104" y="41" width="82.3" height="18" fill="#2c3330"/><text x="194.3" y="54" class="cv" style="text-anchor:start">$1.40</text><text x="0" y="86" class="cl" style="text-anchor:start">Design</text><rect x="104" y="73" width="137.8" height="18" fill="#2c3330"/><text x="249.8" y="86" class="cv" style="text-anchor:start">$2.34</text><text x="0" y="118" class="cl" style="text-anchor:start">Hardscape</text><rect x="104" y="105" width="240.6" height="18" fill="#2c3330"/><text x="352.6" y="118" class="cv" style="text-anchor:start">$4.08</text><text x="0" y="150" class="cl" style="text-anchor:start">Landscape</text><rect x="104" y="137" width="249.2" height="18" fill="#2c3330"/><text x="361.2" y="150" class="cv" style="text-anchor:start">$4.23</text><text x="0" y="182" class="cl" style="text-anchor:start">Veneer</text><rect x="104" y="169" width="250.0" height="18" fill="#2c3330"/><text x="362.0" y="182" class="cv" style="text-anchor:start">$4.24</text></svg><div class="cap">Maintenance had the cheapest clicks in the account</div></div>
+    </div>
+    <div class="figure"><div class="t">Cost per lead by campaign</div><svg viewBox="0 0 960 198" role="img"><text x="0" y="22" class="cl" style="text-anchor:start">Branded</text><rect x="120" y="9" width="33.6" height="18" fill="#2c3330"/><text x="161.6" y="22" class="cv" style="text-anchor:start">$8.92</text><text x="0" y="54" class="cl" style="text-anchor:start">Design</text><rect x="120" y="41" width="61.1" height="18" fill="#2c3330"/><text x="189.1" y="54" class="cv" style="text-anchor:start">$16.23</text><text x="0" y="86" class="cl" style="text-anchor:start">Landscape</text><rect x="120" y="73" width="92.4" height="18" fill="#2c3330"/><text x="220.4" y="86" class="cv" style="text-anchor:start">$24.52</text><text x="0" y="118" class="cl" style="text-anchor:start">Hardscape</text><rect x="120" y="105" width="122.8" height="18" fill="#2c3330"/><text x="250.8" y="118" class="cv" style="text-anchor:start">$32.59</text><text x="0" y="150" class="cl" style="text-anchor:start">Veneer</text><rect x="120" y="137" width="138.7" height="18" fill="#2c3330"/><text x="266.7" y="150" class="cv" style="text-anchor:start">$36.83</text><text x="0" y="182" class="cl" style="text-anchor:start">Maintenance</text><rect x="120" y="169" width="730.0" height="18" fill="#ff7a45"/><text x="858.0" y="182" class="cv" style="text-anchor:start">$193.77</text></svg><div class="cap">Same campaign, worst result: $193.77 per lead</div></div>
+
+    <div class="callout"><span class="label">The lesson</span><p>A low cost per click is not the goal. A $1.09 click that never converts costs more than a $4 click that converts one time in eight.</p></div>
+
+    <h3 style="margin-top:34px">What else was holding the account back</h3>
+    <ul class="notes">
+      <li><b>Five of six campaigns were "Limited by budget"</b>, so the campaigns that did convert were switching off early each day.</li>
+      <li><b>$37 a day was parked in three paused campaigns</b> (Events, Call and Remarketing), counted in the budget but doing nothing.</li>
+      <li><b>Google had disapproved most ads</b> in two of the best campaigns, Hardscape and Branded.</li>
+      <li><b>Leads were sliding after April:</b> from 101 in April to 57 in July, on roughly the same spend.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="wrap">
+    <h2><span class="n">03 / WHAT I DID</span>Step by step</h2>
+    <div class="steps">
+
+      <div class="step">
+        <span class="when">Step 1 · Audit</span>
+        <h3>Broke the account down by campaign and month</h3>
+        <p>Instead of trimming every budget evenly, I pulled every campaign's spend, clicks, leads and calls for each month from January to July. This showed which campaigns carried the account and which only looked busy.</p>
+        <ul>
+          <li>Reviewed 18 months of history on the weakest campaign: about 25 leads at roughly $68 each, against an account average closer to $17.</li>
+          <li>Ranked every campaign by cost per lead, not cost per click.</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <span class="when">Step 2 · Budget reallocation</span>
+        <h3>Moved daily budget from the leak to a stronger campaign</h3>
+        <p>I halved the weak campaign's budget and gave the money to a campaign that was converting and capped by budget.</p>
+        <div class="change"><span class="from">$4/day</span><span class="arr">→</span><span class="to">$2/day</span><span class="cap">Maintenance campaign · 0.56% conversion rate</span></div>
+        <div class="change"><span class="from">$10/day</span><span class="arr">→</span><span class="to">$12/day</span><span class="cap">Veneer campaign · 11.5% conversion rate, limited by budget</span></div>
+        <p class="note">Maintenance spend dropped from about $120 a month to $59.52 in July once the change took effect.</p>
+      </div>
+
+      <div class="step">
+        <span class="when">Step 3 · Search term cleanup</span>
+        <h3>Blocked the searches that were never going to convert</h3>
+        <p>I went through the search terms that triggered the weak campaign and added six phrase-match negative keywords: two competitor names, plus four searches for things the business doesn't offer or that showed research rather than buying intent.</p>
+        <div class="chips">
+          <span class="chip">[competitor name] <i>competitor</i></span>
+          <span class="chip">[competitor name] <i>competitor</i></span>
+          <span class="chip">landscape supply <i>wrong intent</i></span>
+          <span class="chip">koi pond repair <i>not offered</i></span>
+          <span class="chip">patio paving ideas <i>research</i></span>
+          <span class="chip">can a sloped yard be leveled <i>research</i></span>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="when">Step 4 · Reporting</span>
+        <h3>Rebuilt the monthly report so the owner could act on it</h3>
+        <p>The old report was a wall of numbers. I rebuilt the January to July report as a workbook with one plain-English summary page on top, and caught and fixed a chart error along the way where the legend showed numbers instead of campaign names.</p>
+        <ul>
+          <li><b>What's working:</b> Branded at $8.92 a lead, Performance Max at $16.23, Landscape picking up 71 leads from March.</li>
+          <li><b>What isn't:</b> Maintenance at $194 a lead, and Veneer as the most expensive campaign still running.</li>
+          <li><b>One thing to know about the numbers:</b> over half the leads are phone-number taps, which don't confirm a call connected, and conversion value is a placeholder, not job revenue.</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <span class="when">Step 5 · Action plan</span>
+        <h3>Set a clear, ranked plan for the next quarter</h3>
+        <ul>
+          <li><b>Fix the disapprovals</b> on Hardscape and Branded, since nothing else works properly while ads are blocked.</li>
+          <li><b>Fund Branded,</b> the cheapest lead source, which was capped at $5 a day.</li>
+          <li><b>Clean up or pause Maintenance</b> and reuse its budget.</li>
+          <li><b>Investigate the post-April drop:</b> competitors, seasonality and the website.</li>
+          <li><b>Review Veneer against Hardscape,</b> which sells a similar product at a lower cost per lead.</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <span class="when">Step 6 · Protecting the budget</span>
+        <h3>Pushed back on spending more before the data supported it</h3>
+        <p>When the client wanted to push the Maintenance campaign harder for the fall cleanup season, I checked the latest numbers first: about <b>$556 over 42 days for 1 conversion</b>, a 0.65% conversion rate against 9% to 17% on the other campaigns.</p>
+        <p>I recommended checking conversion tracking and landing page relevance before adding budget, and the push was put on hold until that check was done. More money into a campaign that doesn't convert only makes the leak bigger.</p>
+      </div>
+
+      <div class="step">
+        <span class="when">Step 7 · Budget transparency</span>
+        <h3>Built a clear budget table for the monthly review</h3>
+        <p>For the October review I built a budget table showing exactly what the managed campaigns cost and delivered, so the client could compare it against the ad spend they run themselves.</p>
+        <div class="change"><span class="from">$30.77</span><span class="arr">→</span><span class="to">$24.85</span><span class="cap">Cost per lead, July vs October · $68/day, about $2,067/month</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <h2><span class="n">04 / RESULTS</span>What the numbers did</h2>
+    <div class="figure"><div class="t">Leads per month</div><svg viewBox="0 0 960 260" role="img"><rect x="31.1" y="170.7" width="75.2" height="61.3" fill="#2c3330"/><text x="68.8" y="162.7" text-anchor="middle" class="cv">30</text><text x="68.8" y="252" text-anchor="middle" class="cl">Jan</text><rect x="148.7" y="195.2" width="75.2" height="36.8" fill="#2c3330"/><text x="186.2" y="187.2" text-anchor="middle" class="cv">18</text><text x="186.2" y="252" text-anchor="middle" class="cl">Feb</text><rect x="266.1" y="93.1" width="75.2" height="138.9" fill="#2c3330"/><text x="303.8" y="85.1" text-anchor="middle" class="cv">68</text><text x="303.8" y="252" text-anchor="middle" class="cl">Mar</text><rect x="383.6" y="26.0" width="75.2" height="206.0" fill="#ff7a45"/><text x="421.2" y="18.0" text-anchor="middle" class="cv">101</text><text x="421.2" y="252" text-anchor="middle" class="cl">Apr</text><rect x="501.1" y="30.4" width="75.2" height="201.6" fill="#2c3330"/><text x="538.8" y="22.4" text-anchor="middle" class="cv">99</text><text x="538.8" y="252" text-anchor="middle" class="cl">May</text><rect x="618.6" y="78.8" width="75.2" height="153.2" fill="#2c3330"/><text x="656.2" y="70.8" text-anchor="middle" class="cv">75</text><text x="656.2" y="252" text-anchor="middle" class="cl">Jun</text><rect x="736.1" y="114.8" width="75.2" height="117.2" fill="#2c3330"/><text x="773.8" y="106.8" text-anchor="middle" class="cv">57</text><text x="773.8" y="252" text-anchor="middle" class="cl">Jul</text><rect x="853.6" y="79.4" width="75.2" height="152.6" fill="#ff7a45"/><text x="891.2" y="71.4" text-anchor="middle" class="cv">75</text><text x="891.2" y="252" text-anchor="middle" class="cl">Oct</text></svg><div class="cap">Jan–Jul from the campaign report (July = 1–29 Jul). October from the monthly review. Aug–Sep not shown.</div></div>
+    <div class="figure"><div class="t">Cost per lead by month</div><svg viewBox="0 0 960 260" role="img"><polyline points="24.0,101.8 176.0,48.4 328.0,150.9 480.0,171.7 632.0,169.9 784.0,152.0 936.0,129.4" fill="none" stroke="#ff7a45" stroke-width="2"/><circle cx="24.0" cy="101.8" r="4" fill="#0a0c0b" stroke="#ff7a45" stroke-width="2"/><text x="24.0" y="89.8" text-anchor="middle" class="cv">$39</text><text x="24.0" y="252" text-anchor="middle" class="cl">Jan</text><circle cx="176.0" cy="48.4" r="4" fill="#0a0c0b" stroke="#ff7a45" stroke-width="2"/><text x="176.0" y="36.4" text-anchor="middle" class="cv">$55</text><text x="176.0" y="252" text-anchor="middle" class="cl">Feb</text><circle cx="328.0" cy="150.9" r="4" fill="#0a0c0b" stroke="#ff7a45" stroke-width="2"/><text x="328.0" y="138.9" text-anchor="middle" class="cv">$24</text><text x="328.0" y="252" text-anchor="middle" class="cl">Mar</text><circle cx="480.0" cy="171.7" r="4" fill="#0a0c0b" stroke="#ff7a45" stroke-width="2"/><text x="480.0" y="159.7" text-anchor="middle" class="cv">$18</text><text x="480.0" y="252" text-anchor="middle" class="cl">Apr</text><circle cx="632.0" cy="169.9" r="4" fill="#0a0c0b" stroke="#ff7a45" stroke-width="2"/><text x="632.0" y="157.9" text-anchor="middle" class="cv">$19</text><text x="632.0" y="252" text-anchor="middle" class="cl">May</text><circle cx="784.0" cy="152.0" r="4" fill="#0a0c0b" stroke="#ff7a45" stroke-width="2"/><text x="784.0" y="140.0" text-anchor="middle" class="cv">$24</text><text x="784.0" y="252" text-anchor="middle" class="cl">Jun</text><circle cx="936.0" cy="129.4" r="4" fill="#0a0c0b" stroke="#ff7a45" stroke-width="2"/><text x="936.0" y="117.4" text-anchor="middle" class="cv">$31</text><text x="936.0" y="252" text-anchor="middle" class="cl">Jul</text></svg><div class="cap">Account cost ÷ conversions, Jan–Jul 2026</div></div>
+
+    <div class="tldr">
+      <div><span class="k">Lead cost</span><h4>$39.05 → $18.10</h4><p>January to April, even as monthly spend rose from $1,171 to $1,825.</p></div>
+      <div><span class="k">Conversion rate</span><h4>6.0% → 16.0%</h4><p>More of every click turned into a call or form lead.</p></div>
+      <div><span class="k">October</span><h4>74.68 leads at $24.85</h4><p>Up from 57 leads at $30.77 in July, on a $68/day budget.</p></div>
+    </div>
+
+    <div class="callout"><span class="label">Why the cost per click went up</span><p>Average cost per click rose from $2.34 in January to $3.25 in July. That was expected: budget moved away from $1.09 clicks that rarely converted and toward Search campaigns where clicks cost around $4 but one in eight became a lead. Paying more per click to pay less per customer is the right trade.</p></div>
+  </div>
+</section>
+
+<section id="report">
+  <div class="wrap">
+    <h2><span class="n">05 / FULL REPORT</span>The data behind it</h2>
+    <p>The same figures I delivered to the client, pulled from the Google Ads campaign report segmented by month (1 January to 29 July 2026). All figures in USD.</p>
+    <div class="report-gate">
+      <button class="btn primary" id="openReport" aria-expanded="false" aria-controls="fullReport">View the full report ↓</button>
+    </div>
+
+    <div id="fullReport" hidden>
+      <h3 style="margin-top:40px">Account performance by month</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Month</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Cost</th><th>Avg. CPC</th><th>Leads</th><th>Cost / lead</th><th>Conv. rate</th></tr></thead>
+        <tbody><tr class=""><td>Jan 2026</td><td>15,593</td><td>500</td><td>3.2%</td><td>$1,171.42</td><td>$2.34</td><td>30.0</td><td>$39.05</td><td>6.0%</td></tr><tr class=""><td>Feb 2026</td><td>8,762</td><td>305</td><td>3.5%</td><td>$991.59</td><td>$3.25</td><td>18.0</td><td>$55.09</td><td>5.9%</td></tr><tr class=""><td>Mar 2026</td><td>15,906</td><td>658</td><td>4.1%</td><td>$1,653.93</td><td>$2.51</td><td>68.0</td><td>$24.32</td><td>10.3%</td></tr><tr class="hl"><td>Apr 2026</td><td>13,140</td><td>630</td><td>4.8%</td><td>$1,824.77</td><td>$2.90</td><td>100.8</td><td>$18.10</td><td>16.0%</td></tr><tr class=""><td>May 2026</td><td>13,019</td><td>692</td><td>5.3%</td><td>$1,839.08</td><td>$2.66</td><td>98.7</td><td>$18.64</td><td>14.3%</td></tr><tr class=""><td>Jun 2026</td><td>11,738</td><td>553</td><td>4.7%</td><td>$1,798.66</td><td>$3.25</td><td>75.0</td><td>$23.99</td><td>13.6%</td></tr><tr class=""><td>Jul 2026</td><td>10,121</td><td>543</td><td>5.4%</td><td>$1,765.49</td><td>$3.25</td><td>57.4</td><td>$30.77</td><td>10.6%</td></tr><tr class="tot"><td><b>Jan–Jul total</b></td><td>88,279</td><td>3,881</td><td>4.4%</td><td><b>$11,044.94</b></td><td>$2.85</td><td><b>447.9</b></td><td><b>$24.66</b></td><td>11.5%</td></tr></tbody>
+      </table></div>
+      <p class="note">July covers 1–29 July only.</p>
+
+      <h3 style="margin-top:40px">Campaign breakdown, Jan–Jul</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Campaign</th><th>Type</th><th>Budget</th><th>Impressions</th><th>Clicks</th><th>Cost</th><th>Avg. CPC</th><th>Leads</th><th>Conv. rate</th><th>Cost / lead</th><th>% of spend</th></tr></thead>
+        <tbody><tr class=""><td><b>Hardscape</b></td><td>Search</td><td>$20/day</td><td>17,979</td><td>1,027</td><td>$4,190.27</td><td>$4.08</td><td>128.6</td><td>12.5%</td><td>$32.59</td><td>38%</td></tr><tr class=""><td><b>Veneer</b></td><td>Search</td><td>$12/day</td><td>9,666</td><td>443</td><td>$1,878.13</td><td>$4.24</td><td>51.0</td><td>11.5%</td><td>$36.83</td><td>17%</td></tr><tr class=""><td><b>Landscape</b></td><td>Search</td><td>$18/day</td><td>5,536</td><td>416</td><td>$1,757.84</td><td>$4.23</td><td>71.7</td><td>17.2%</td><td>$24.52</td><td>16%</td></tr><tr class=""><td><b>Design</b></td><td>Performance Max</td><td>$10/day</td><td>15,140</td><td>689</td><td>$1,610.66</td><td>$2.34</td><td>99.2</td><td>14.4%</td><td>$16.23</td><td>15%</td></tr><tr class=""><td><b>Branded</b></td><td>Search</td><td>$5/day</td><td>3,210</td><td>597</td><td>$832.97</td><td>$1.40</td><td>93.4</td><td>15.6%</td><td>$8.92</td><td>8%</td></tr><tr class="warn"><td><b>Maintenance</b></td><td>Search</td><td>$2/day</td><td>36,748</td><td>709</td><td>$775.07</td><td>$1.09</td><td>4.0</td><td>0.6%</td><td>$193.77</td><td>7%</td></tr><tr class="tot"><td><b>Total</b></td><td></td><td>$67/day</td><td>88,279</td><td>3,881</td><td><b>$11,044.94</b></td><td>$2.85</td><td><b>447.9</b></td><td>11.5%</td><td><b>$24.66</b></td><td>100%</td></tr></tbody>
+      </table></div>
+      <p class="note">Budgets shown as at the end of July. Three paused campaigns (Events $14, Call $18, Remarketing $5 a day) spent nothing in the period and are left out.</p>
+
+      <h3 style="margin-top:40px">Leads by campaign by month</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Campaign</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Total</th></tr></thead>
+        <tbody><tr class=""><td><b>Hardscape</b></td><td>13.5</td><td>11.5</td><td>14</td><td>34.9</td><td>21.2</td><td>15</td><td>18.5</td><td>128.6</td></tr><tr class=""><td><b>Veneer</b></td><td>5</td><td>2</td><td>8.5</td><td>12</td><td>8</td><td>9.5</td><td>6</td><td>51.0</td></tr><tr class=""><td><b>Landscape</b></td><td>0</td><td>1</td><td>13</td><td>9</td><td>28.0</td><td>13.2</td><td>7.5</td><td>71.7</td></tr><tr class=""><td><b>Design</b></td><td>5</td><td>1.5</td><td>16</td><td>30.9</td><td>19.5</td><td>16.3</td><td>10</td><td>99.2</td></tr><tr class=""><td><b>Branded</b></td><td>5.5</td><td>2</td><td>16.5</td><td>14</td><td>20</td><td>21</td><td>14.4</td><td>93.4</td></tr><tr class="warn"><td><b>Maintenance</b></td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>1</td><td>4.0</td></tr><tr class="tot"><td><b>Total</b></td><td>30</td><td>18</td><td>68</td><td>100.8</td><td>98.7</td><td>75.0</td><td>57.4</td><td><b>447.9</b></td></tr></tbody>
+      </table></div>
+
+      <h3 style="margin-top:40px">Change log</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>When</th><th style="text-align:left">Change</th><th style="text-align:left">Why</th></tr></thead>
+        <tbody>
+          <tr><td>June</td><td style="text-align:left">Maintenance budget $4 → $2/day</td><td style="text-align:left">~25 leads in 18 months at ~$68 each</td></tr>
+          <tr><td>June</td><td style="text-align:left">Veneer budget $10 → $12/day</td><td style="text-align:left">Converting and limited by budget</td></tr>
+          <tr><td>June</td><td style="text-align:left">6 phrase-match negatives on Maintenance</td><td style="text-align:left">Competitor and wrong-intent searches</td></tr>
+          <tr><td>July</td><td style="text-align:left">Jan–Jul report rebuilt with plain-English summary</td><td style="text-align:left">Client couldn't act on the old format</td></tr>
+          <tr><td>September</td><td style="text-align:left">Maintenance push put on hold pending a tracking check</td><td style="text-align:left">$556 over 42 days for 1 conversion</td></tr>
+          <tr><td>October</td><td style="text-align:left">Budget table for monthly review</td><td style="text-align:left">$68/day; $1,856.16 spent, 74.68 leads, $24.85 per lead</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3 style="margin-top:40px">Notes on the numbers</h3>
+      <ul class="notes">
+        <li><b>Leads</b> are Google Ads conversions: website form submissions plus phone-number taps. Fractional values such as 34.9 are Google's modelled conversions.</li>
+        <li><b>Over half the leads are phone-number taps</b>, which don't confirm that a call connected.</li>
+        <li><b>Revenue is not tracked in this account.</b> The conversion value in Google Ads is a placeholder, not job income, so results are reported as cost per lead.</li>
+        <li><b>The January to April improvement</b> also reflects the start of the spring season for outdoor work.</li>
+        <li><b>Total spend January to October:</b> $16,991.73. Monthly detail for August and September isn't included here.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <a class="btn" href="./#work">← Back to all case studies</a>
+    <span>Client name withheld for confidentiality</span>
+  </footer>
+</div>
+</main>
+
+<script>
+const b=document.getElementById('openReport'),r=document.getElementById('fullReport');
+b.addEventListener('click',()=>{const open=r.hidden;r.hidden=!open;b.setAttribute('aria-expanded',open);b.textContent=open?'Hide the full report ↑':'View the full report ↓';if(open)r.scrollIntoView({behavior:'smooth',block:'start'});});
+if(location.hash==='#full'){r.hidden=false;b.setAttribute('aria-expanded','true');b.textContent='Hide the full report ↑';}
+</script>
+</body>
+</html>
